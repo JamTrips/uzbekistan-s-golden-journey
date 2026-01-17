@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
     }
   };
 
-  const phoneNumber = '998915395610';
+  const phoneNumber = '998990152110';
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
   return (
