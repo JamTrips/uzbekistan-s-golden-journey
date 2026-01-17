@@ -28,13 +28,13 @@ const DayTrips: React.FC = () => {
     },
     {
       id: 2,
-      title: language === 'en' ? 'Seven Lakes Adventure' : 'Приключение на Семи озёрах',
+      title: language === 'en' ? 'Seven Lakes & Fann Mountains' : 'Семь озёр и Фанские горы',
       description: language === 'en'
-        ? 'Discover the stunning turquoise lakes nestled in the Fann Mountains. A perfect escape into nature.'
-        : 'Откройте для себя потрясающие бирюзовые озёра в Фанских горах.',
+        ? 'Discover the stunning turquoise Seven Lakes nestled in the majestic Fann Mountains. Experience breathtaking alpine scenery, crystal-clear waters, and pristine nature.'
+        : 'Откройте для себя потрясающие бирюзовые Семь озёр в величественных Фанских горах. Насладитесь захватывающими альпийскими пейзажами и кристально чистыми водами.',
       image: sevenLakesImage,
-      duration: '8-10 hours',
-      price: 120,
+      duration: '10-12 hours',
+      price: 140,
       from: 'Samarkand',
     },
     {
