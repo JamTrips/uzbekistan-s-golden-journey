@@ -37,7 +37,7 @@ const CTASection: React.FC = () => {
               size="xl"
               asChild
             >
-              <a href="mailto:info@jamtrips.uz">
+              <a href="mailto:felice21@yandex.ru">
                 <Mail className="w-5 h-5" />
                 {t('cta.email')}
               </a>
