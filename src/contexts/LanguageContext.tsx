@@ -74,7 +74,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.message': 'Your Message',
     'contact.form.submit': 'Send Message',
     'contact.info.title': 'Contact Information',
-    'contact.info.address': 'Tashkent, Uzbekistan',
+    'contact.info.address': 'Samarkand, Uzbekistan',
     
     // About Page
     'about.title': 'About JamTrips',
@@ -164,7 +164,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.message': 'Сообщение',
     'contact.form.submit': 'Отправить',
     'contact.info.title': 'Контактная информация',
-    'contact.info.address': 'Ташкент, Узбекистан',
+    'contact.info.address': 'Самарканд, Узбекистан',
     
     // About Page
     'about.title': 'О JamTrips',
