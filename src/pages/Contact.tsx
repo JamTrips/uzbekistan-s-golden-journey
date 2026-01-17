@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
     }
   };
 
-  const phoneNumber = '998901234567';
+  const phoneNumber = '998915395610';
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
   return (
@@ -188,8 +188,8 @@ const Contact: React.FC = () => {
                         <h3 className="font-semibold text-foreground mb-1">
                           {language === 'en' ? 'Phone' : 'Телефон'}
                         </h3>
-                        <a href="tel:+998901234567" className="text-muted-foreground hover:text-accent transition-colors">
-                          +998 90 123 45 67
+                        <a href="tel:+998915395610" className="text-muted-foreground hover:text-accent transition-colors">
+                          +998 91 539 56 10
                         </a>
                       </div>
                     </div>
