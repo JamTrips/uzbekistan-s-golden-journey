@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const CTASection: React.FC = () => {
   const { t } = useLanguage();
 
-  const phoneNumber = '998915395610';
+  const phoneNumber = '998990152110';
   const message = encodeURIComponent('Hello! I would like to inquire about tours in Uzbekistan.');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
