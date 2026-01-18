@@ -70,6 +70,17 @@ const DayTrips: React.FC = () => {
       price: 80,
       from: 'Tashkent',
     },
+    {
+      id: 6,
+      title: language === 'en' ? 'Bukhara by Train' : 'Бухара на поезде',
+      description: language === 'en'
+        ? 'Travel by high-speed Afrosiyob train to Bukhara. Explore the ancient Silk Road city with its Ark Fortress, Po-i-Kalyan complex, and historic trading domes, then return the same day.'
+        : 'Путешествуйте скоростным поездом Афросиаб в Бухару. Исследуйте древний город Шёлкового пути с крепостью Арк, комплексом Пои-Калян и историческими торговыми куполами.',
+      image: bukharaImage,
+      duration: '12-14 hours',
+      price: 160,
+      from: 'Samarkand',
+    },
   ];
 
   return (
