@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -53,6 +53,15 @@ const Header: React.FC = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-3">
+            <a
+              href="tel:+998990152110"
+              className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+              aria-label="Call us"
+            >
+              <Phone className="w-4 h-4" />
+              <span className="hidden sm:inline">+998 99 015 21 10</span>
+            </a>
+            
             <button
               onClick={toggleLanguage}
               className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
