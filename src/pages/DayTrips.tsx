@@ -92,6 +92,17 @@ const DayTrips: React.FC = () => {
       price: 170,
       from: 'Tashkent',
     },
+    {
+      id: 8,
+      title: language === 'en' ? 'Boysun Red Canyons & Darbent Gorge' : 'Красные каньоны Бойсуна и ущелье Дарбента',
+      description: language === 'en'
+        ? 'Journey to the spectacular red sandstone canyons of Boysun and the dramatic Darbent Gorge. Experience stunning geological formations, ancient rock art, and breathtaking mountain landscapes.'
+        : 'Отправьтесь к впечатляющим красным песчаным каньонам Бойсуна и живописному ущелью Дарбента. Насладитесь потрясающими геологическими образованиями, древними наскальными рисунками и захватывающими горными пейзажами.',
+      image: sevenLakesImage,
+      duration: '10-12 hours',
+      price: 180,
+      from: 'Samarkand',
+    },
   ];
 
   return (
