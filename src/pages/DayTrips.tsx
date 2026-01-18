@@ -81,6 +81,17 @@ const DayTrips: React.FC = () => {
       price: 160,
       from: 'Samarkand',
     },
+    {
+      id: 7,
+      title: language === 'en' ? 'Samarkand by Train' : 'Самарканд на поезде',
+      description: language === 'en'
+        ? 'Take the high-speed Afrosiyob train from Tashkent to Samarkand. Visit Registan Square, Gur-Emir Mausoleum, Shah-i-Zinda, and Bibi-Khanym Mosque, then return by evening train.'
+        : 'Отправьтесь скоростным поездом Афросиаб из Ташкента в Самарканд. Посетите площадь Регистан, мавзолей Гур-Эмир, Шахи-Зинда и мечеть Биби-Ханум.',
+      image: samarkandImage,
+      duration: '12-14 hours',
+      price: 170,
+      from: 'Tashkent',
+    },
   ];
 
   return (
