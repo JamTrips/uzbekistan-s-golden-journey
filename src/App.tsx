@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
-import PrivateTours from "./pages/PrivateTours";
 import DayTrips from "./pages/DayTrips";
 import MultiDayTours from "./pages/MultiDayTours";
 import Transfers from "./pages/Transfers";
@@ -27,7 +26,6 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/private-tours" element={<PrivateTours />} />
               <Route path="/day-trips" element={<DayTrips />} />
               <Route path="/multi-day-tours" element={<MultiDayTours />} />
               <Route path="/transfers" element={<Transfers />} />
