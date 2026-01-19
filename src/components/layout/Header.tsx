@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Header: React.FC = () => {
@@ -76,13 +77,22 @@ const Header: React.FC = () => {
               </button>
             </div>
 
-            <a
-              href="tel:+998990152110"
-              className="hidden md:flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent font-medium rounded-full transition-all"
-            >
-              <Phone className="w-4 h-4" />
-              <span>+998 99 015 21 10</span>
-            </a>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href="tel:+998990152110"
+                    className="hidden md:flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent hover:text-accent-foreground text-accent font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  >
+                    <Phone className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
+                    <span>+998 99 015 21 10</span>
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Позвонить</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
 
             <Button variant="gold" size="sm" className="hidden md:flex" asChild>
               <Link to="/contact">{t('hero.cta')}</Link>
@@ -120,7 +130,8 @@ const Header: React.FC = () => {
               <div className="mt-4 px-4 flex flex-col gap-3">
                 <a
                   href="tel:+998990152110"
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-accent/10 hover:bg-accent/20 text-accent font-medium rounded-lg transition-all"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-accent/10 hover:bg-accent hover:text-accent-foreground text-accent font-medium rounded-lg transition-all duration-300 active:scale-95"
+                  title="Позвонить"
                 >
                   <Phone className="w-5 h-5" />
                   <span>+998 99 015 21 10</span>
