@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -76,6 +76,14 @@ const Header: React.FC = () => {
               </button>
             </div>
 
+            <a
+              href="tel:+998990152110"
+              className="hidden md:flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent font-medium rounded-full transition-all"
+            >
+              <Phone className="w-4 h-4" />
+              <span>+998 99 015 21 10</span>
+            </a>
+
             <Button variant="gold" size="sm" className="hidden md:flex" asChild>
               <Link to="/contact">{t('hero.cta')}</Link>
             </Button>
@@ -109,7 +117,14 @@ const Header: React.FC = () => {
                   {link.label}
                 </Link>
               ))}
-              <div className="mt-4 px-4">
+              <div className="mt-4 px-4 flex flex-col gap-3">
+                <a
+                  href="tel:+998990152110"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-accent/10 hover:bg-accent/20 text-accent font-medium rounded-lg transition-all"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>+998 99 015 21 10</span>
+                </a>
                 <Button variant="gold" className="w-full" asChild>
                   <Link to="/contact">{t('hero.cta')}</Link>
                 </Button>
