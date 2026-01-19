@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Car, Plane, Users, Clock, Shield, ArrowRight } from 'lucide-react';
+import { Car, Plane, Users, Clock, Shield, ArrowRight, Train } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -34,6 +34,18 @@ const Transfers: React.FC = () => {
         language === 'en' ? 'Bottled water' : 'Бутилированная вода',
       ],
     },
+    {
+      icon: Train,
+      title: language === 'en' ? 'Afrosiyab High-Speed Train Tickets' : 'Билеты на поезд "Афросияб"',
+      description: language === 'en'
+        ? 'We organize and purchase tickets for the Afrosiyab high-speed train in all directions across Uzbekistan.'
+        : 'Организуем и покупаем билеты на скоростной поезд "Афросияб" по всем направлениям Узбекистана.',
+      features: [
+        language === 'en' ? 'All routes available' : 'Все направления',
+        language === 'en' ? 'Fast booking' : 'Быстрое бронирование',
+        language === 'en' ? 'E-ticket delivery' : 'Электронные билеты',
+      ],
+    },
   ];
 
   const routes = [
@@ -43,6 +55,13 @@ const Transfers: React.FC = () => {
     { from: 'Tashkent', to: 'Bukhara', distance: '570 km', time: '7h', price: 170 },
     { from: 'Samarkand', to: 'Shahrisabz', distance: '90 km', time: '1.5h', price: 50 },
     { from: 'Tashkent Airport', to: 'Tashkent City', distance: '10 km', time: '30min', price: 25 },
+  ];
+
+  const trainRoutes = [
+    { from: language === 'en' ? 'Tashkent' : 'Ташкент', to: language === 'en' ? 'Samarkand' : 'Самарканд', time: '2h 10min', class: language === 'en' ? 'Business / Economy' : 'Бизнес / Эконом' },
+    { from: language === 'en' ? 'Tashkent' : 'Ташкент', to: language === 'en' ? 'Bukhara' : 'Бухара', time: '3h 50min', class: language === 'en' ? 'Business / Economy' : 'Бизнес / Эконом' },
+    { from: language === 'en' ? 'Samarkand' : 'Самарканд', to: language === 'en' ? 'Bukhara' : 'Бухара', time: '1h 30min', class: language === 'en' ? 'Business / Economy' : 'Бизнес / Эконом' },
+    { from: language === 'en' ? 'Tashkent' : 'Ташкент', to: language === 'en' ? 'Karshi' : 'Карши', time: '3h 20min', class: language === 'en' ? 'Business / Economy' : 'Бизнес / Эконом' },
   ];
 
   const features = [
@@ -92,9 +111,9 @@ const Transfers: React.FC = () => {
         {/* Transfer Types */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {transferTypes.map((type, index) => (
-                <div key={index} className="bg-card p-8 rounded-lg shadow-soft">
+                <div key={index} className="bg-card p-8 rounded-lg shadow-soft hover:shadow-md transition-shadow">
                   <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-6">
                     <type.icon className="w-7 h-7" />
                   </div>
@@ -112,6 +131,71 @@ const Transfers: React.FC = () => {
                   </ul>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Afrosiyab Train Routes */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-4">
+                <Train className="w-5 h-5" />
+                <span className="font-medium">
+                  {language === 'en' ? 'High-Speed Train' : 'Скоростной поезд'}
+                </span>
+              </div>
+              <h2 className="font-serif text-3xl font-bold text-foreground mb-4">
+                {language === 'en' ? 'Afrosiyab Train Routes' : 'Маршруты поезда "Афросияб"'}
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                {language === 'en' 
+                  ? 'Travel fast and comfortably between major cities of Uzbekistan on the modern Afrosiyab high-speed train. We handle all ticket booking for you.'
+                  : 'Путешествуйте быстро и комфортно между крупными городами Узбекистана на современном скоростном поезде "Афросияб". Мы берём на себя всё бронирование билетов.'}
+              </p>
+            </div>
+            <div className="max-w-4xl mx-auto bg-card rounded-lg shadow-soft overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-accent text-accent-foreground">
+                    <tr>
+                      <th className="px-6 py-4 text-left font-semibold">
+                        {language === 'en' ? 'Route' : 'Маршрут'}
+                      </th>
+                      <th className="px-6 py-4 text-left font-semibold">
+                        {language === 'en' ? 'Travel Time' : 'Время в пути'}
+                      </th>
+                      <th className="px-6 py-4 text-left font-semibold">
+                        {language === 'en' ? 'Class' : 'Класс'}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {trainRoutes.map((route, index) => (
+                      <tr key={index} className="border-b border-border hover:bg-muted/50 transition-colors">
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-2">
+                            <Train className="w-4 h-4 text-accent" />
+                            <span className="font-medium text-foreground">{route.from}</span>
+                            <span className="text-muted-foreground">→</span>
+                            <span className="font-medium text-foreground">{route.to}</span>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 text-muted-foreground font-medium">{route.time}</td>
+                        <td className="px-6 py-4 text-muted-foreground">{route.class}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="text-center mt-8">
+              <Button variant="gold" size="lg" asChild>
+                <Link to="/contact">
+                  {language === 'en' ? 'Book Train Tickets' : 'Забронировать билеты'}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
