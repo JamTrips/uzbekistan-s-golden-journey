@@ -53,13 +53,28 @@ const Header: React.FC = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-3">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-            >
-              <Globe className="w-4 h-4" />
-              <span>{language.toUpperCase()}</span>
-            </button>
+            <div className="flex items-center gap-1 bg-muted rounded-full p-1">
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-3 py-1.5 text-sm font-medium rounded-full transition-all ${
+                  language === 'en'
+                    ? 'bg-accent text-accent-foreground shadow-sm'
+                    : 'text-foreground/70 hover:text-foreground'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage('ru')}
+                className={`px-3 py-1.5 text-sm font-medium rounded-full transition-all ${
+                  language === 'ru'
+                    ? 'bg-accent text-accent-foreground shadow-sm'
+                    : 'text-foreground/70 hover:text-foreground'
+                }`}
+              >
+                RU
+              </button>
+            </div>
 
             <Button variant="gold" size="sm" className="hidden md:flex" asChild>
               <Link to="/contact">{t('hero.cta')}</Link>
