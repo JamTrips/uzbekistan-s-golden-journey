@@ -10,6 +10,7 @@ import bukharaImage from '@/assets/bukhara.jpg';
 import khivaImage from '@/assets/khiva.jpg';
 import sevenLakesImage from '@/assets/seven-lakes.jpg';
 import tashkentImage from '@/assets/tashkent.jpg';
+import boysunCanyonImage from '@/assets/boysun-canyon.jpg';
 
 const DayTrips: React.FC = () => {
   const { t, language } = useLanguage();
@@ -98,7 +99,7 @@ const DayTrips: React.FC = () => {
       description: language === 'en'
         ? 'Journey to the spectacular red sandstone canyons of Boysun and the dramatic Darbent Gorge. Experience stunning geological formations, ancient rock art, and breathtaking mountain landscapes.'
         : 'Отправьтесь к впечатляющим красным песчаным каньонам Бойсуна и живописному ущелью Дарбента. Насладитесь потрясающими геологическими образованиями, древними наскальными рисунками и захватывающими горными пейзажами.',
-      image: sevenLakesImage,
+      image: boysunCanyonImage,
       duration: '10-12 hours',
       price: 180,
       from: 'Samarkand',
