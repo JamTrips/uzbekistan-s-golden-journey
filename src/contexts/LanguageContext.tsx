@@ -12,6 +12,7 @@ const translations: Record<Language, Record<string, string>> = {
   en: {
     // Navigation
     'nav.home': 'Home',
+    'nav.destinations': 'Destinations',
     'nav.privateTours': 'Private Tours',
     'nav.dayTrips': 'Day Trips',
     'nav.multiDayTours': 'Multi-day Tours',
@@ -102,6 +103,7 @@ const translations: Record<Language, Record<string, string>> = {
   ru: {
     // Navigation
     'nav.home': 'Главная',
+    'nav.destinations': 'Направления',
     'nav.privateTours': 'Частные туры',
     'nav.dayTrips': 'Однодневные туры',
     'nav.multiDayTours': 'Многодневные туры',
