@@ -13,6 +13,11 @@ import About from "./pages/About";
 import Reviews from "./pages/Reviews";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Destinations from "./pages/Destinations";
+import Samarkand from "./pages/cities/Samarkand";
+import Tashkent from "./pages/cities/Tashkent";
+import Bukhara from "./pages/cities/Bukhara";
+import Khiva from "./pages/cities/Khiva";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +31,11 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/destinations" element={<Destinations />} />
+              <Route path="/destinations/samarkand" element={<Samarkand />} />
+              <Route path="/destinations/tashkent" element={<Tashkent />} />
+              <Route path="/destinations/bukhara" element={<Bukhara />} />
+              <Route path="/destinations/khiva" element={<Khiva />} />
               <Route path="/day-trips" element={<DayTrips />} />
               <Route path="/multi-day-tours" element={<MultiDayTours />} />
               <Route path="/transfers" element={<Transfers />} />
