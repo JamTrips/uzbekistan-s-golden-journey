@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Layout from '@/components/layout/Layout';
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedTours from '@/components/home/FeaturedTours';
+import DestinationsSection from '@/components/home/DestinationsSection';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
 import Testimonials from '@/components/home/Testimonials';
 import CTASection from '@/components/home/CTASection';
@@ -26,6 +27,7 @@ const Index: React.FC = () => {
       <Layout>
         <HeroSection />
         <FeaturedTours />
+        <DestinationsSection />
         <WhyChooseUs />
         <Testimonials />
         <CTASection />
