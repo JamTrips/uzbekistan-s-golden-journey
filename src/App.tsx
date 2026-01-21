@@ -18,6 +18,7 @@ import Samarkand from "./pages/cities/Samarkand";
 import Tashkent from "./pages/cities/Tashkent";
 import Bukhara from "./pages/cities/Bukhara";
 import Khiva from "./pages/cities/Khiva";
+import Shakhrisabz from "./pages/cities/Shakhrisabz";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/destinations/tashkent" element={<Tashkent />} />
               <Route path="/destinations/bukhara" element={<Bukhara />} />
               <Route path="/destinations/khiva" element={<Khiva />} />
+              <Route path="/destinations/shakhrisabz" element={<Shakhrisabz />} />
               <Route path="/day-trips" element={<DayTrips />} />
               <Route path="/multi-day-tours" element={<MultiDayTours />} />
               <Route path="/transfers" element={<Transfers />} />
