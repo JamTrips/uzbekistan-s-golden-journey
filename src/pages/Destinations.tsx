@@ -10,6 +10,7 @@ import tashkentImage from '@/assets/tashkent.jpg';
 import heroRegistanImage from '@/assets/hero-registan.jpg';
 import bukharaImage from '@/assets/bukhara.jpg';
 import khivaImage from '@/assets/khiva.jpg';
+import sevenLakesImage from '@/assets/seven-lakes.jpg';
 
 const Destinations: React.FC = () => {
   const { language } = useLanguage();
@@ -66,6 +67,19 @@ const Destinations: React.FC = () => {
         : 'Окунитесь в прошлое внутри внесённого в список ЮНЕСКО Ичан-Калы.',
       image: khivaImage,
       link: '/destinations/khiva',
+    },
+    {
+      id: 'shakhrisabz',
+      icon: Landmark,
+      name: language === 'en' ? 'Shakhrisabz' : 'Шахрисабз',
+      subtitle: language === 'en'
+        ? 'The birthplace of Amir Temur and a UNESCO World Heritage Site.'
+        : 'Родина Амира Темура и объект Всемирного наследия ЮНЕСКО.',
+      description: language === 'en'
+        ? 'Explore the ruins of Ak-Saray Palace and discover the legacy of the great conqueror.'
+        : 'Исследуйте руины дворца Ак-Сарай и откройте наследие великого завоевателя.',
+      image: sevenLakesImage,
+      link: '/destinations/shakhrisabz',
     },
   ];
 
