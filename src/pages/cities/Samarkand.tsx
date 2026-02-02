@@ -461,79 +461,80 @@ const Samarkand: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="grid gap-8">
             {tours.map((tour, index) => (
               <Card 
                 key={tour.id} 
-                className="overflow-hidden border-border/50 shadow-soft hover:shadow-elevated transition-shadow duration-300 animate-fade-up"
+                className="overflow-hidden border-2 border-border bg-card shadow-md hover:shadow-xl hover:border-accent/30 transition-all duration-300 animate-fade-up rounded-xl"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
+                {/* Card Header with Badge */}
+                <div className="bg-secondary/50 px-6 py-4 border-b border-border flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground">
+                    {tour.title}
+                  </h3>
+                  <div className="flex items-center gap-3">
+                    {tour.badge && (
+                      <Badge className={`${tour.badgeColor} px-3 py-1`}>
+                        {tour.badge}
+                      </Badge>
+                    )}
+                    <div className="flex items-center gap-1 bg-accent/10 px-3 py-1 rounded-full">
+                      <DollarSign className="w-4 h-4 text-accent" />
+                      <span className="font-bold text-foreground">{tour.price}</span>
+                    </div>
+                  </div>
+                </div>
+
                 <CardContent className="p-6 md:p-8">
                   <div className="flex flex-col gap-6">
-                    {/* Header */}
+                    {/* Description & Meta */}
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                       <div className="flex-1">
-                        <div className="flex flex-wrap items-center gap-3 mb-2">
-                          <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground">
-                            {tour.title}
-                          </h3>
-                          {tour.badge && (
-                            <Badge className={tour.badgeColor}>
-                              {tour.badge}
-                            </Badge>
-                          )}
-                        </div>
-                        <p className="text-muted-foreground text-sm mb-4">
+                        <p className="text-muted-foreground mb-4">
                           {tour.description}
                         </p>
 
-                        {/* Tour Meta */}
-                        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-2">
-                            <MapPin className="w-4 h-4 text-accent" />
-                            <span>{tour.route}</span>
+                        {/* Tour Meta Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                          <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg">
+                            <MapPin className="w-4 h-4 text-accent flex-shrink-0" />
+                            <span className="text-sm text-foreground truncate">{tour.route}</span>
                           </div>
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg">
                             {getTourTypeIcon(tour.tourType)}
-                            <span>{tour.tourType}</span>
+                            <span className="text-sm text-foreground">{tour.tourType}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Clock className="w-4 h-4 text-accent" />
-                            <span>{tour.duration}</span>
+                          <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg">
+                            <Clock className="w-4 h-4 text-accent flex-shrink-0" />
+                            <span className="text-sm text-foreground">{tour.duration}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Globe className="w-4 h-4 text-accent" />
-                            <span>{tour.languages}</span>
+                          <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg">
+                            <Globe className="w-4 h-4 text-accent flex-shrink-0" />
+                            <span className="text-sm text-foreground">{tour.languages}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Users className="w-4 h-4 text-accent" />
-                            <span>{tour.groupType}</span>
+                          <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg col-span-2 md:col-span-1">
+                            <Users className="w-4 h-4 text-accent flex-shrink-0" />
+                            <span className="text-sm text-foreground truncate">{tour.groupType}</span>
                           </div>
                         </div>
-                      </div>
-
-                      {/* Price & CTA */}
-                      <div className="flex flex-col gap-3 lg:min-w-[200px] lg:text-right">
-                        <div className="flex items-center gap-2 lg:justify-end">
-                          <DollarSign className="w-5 h-5 text-accent" />
-                          <span className="text-xl font-bold text-foreground">{tour.price}</span>
-                        </div>
-                        <Button variant="gold" className="w-full" asChild>
-                          <Link to="/contact">
-                            Забронировать
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </Link>
-                        </Button>
                       </div>
                     </div>
 
                     {/* Program */}
-                    <div className="border-t border-border pt-4">
-                      <h4 className="font-semibold text-foreground mb-3">Программа</h4>
-                      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                    <div className="bg-secondary/30 rounded-xl p-5 border border-border/50">
+                      <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                        <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center">
+                          <Check className="w-3 h-3 text-accent" />
+                        </div>
+                        Программа
+                      </h4>
+                      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {tour.program.map((item, i) => (
-                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                          <li key={i} className="flex items-start gap-2 text-sm text-foreground bg-background px-3 py-2 rounded-lg border border-border/30">
+                            <span className="w-5 h-5 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-xs font-medium text-accent">{i + 1}</span>
+                            </span>
                             {item}
                           </li>
                         ))}
@@ -541,42 +542,67 @@ const Samarkand: React.FC = () => {
                     </div>
 
                     {/* Details Grid */}
-                    <div className="grid md:grid-cols-3 gap-4 border-t border-border pt-4">
+                    <div className="grid md:grid-cols-3 gap-4">
                       {/* Included */}
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2 text-sm flex items-center gap-2">
-                          <Check className="w-4 h-4 text-accent" />
+                      <div className="bg-accent/5 rounded-xl p-4 border border-accent/20">
+                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                          <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center">
+                            <Check className="w-3 h-3 text-accent" />
+                          </div>
                           Включено
                         </h4>
-                        <ul className="space-y-1">
+                        <ul className="space-y-2">
                           {tour.included.map((item, i) => (
-                            <li key={i} className="text-xs text-muted-foreground">• {item}</li>
+                            <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                              <Check className="w-3 h-3 text-accent mt-1 flex-shrink-0" />
+                              {item}
+                            </li>
                           ))}
                         </ul>
                       </div>
 
                       {/* Not Included */}
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2 text-sm flex items-center gap-2">
-                          <XIcon className="w-4 h-4 text-destructive" />
+                      <div className="bg-destructive/5 rounded-xl p-4 border border-destructive/20">
+                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                          <div className="w-6 h-6 bg-destructive/20 rounded-full flex items-center justify-center">
+                            <XIcon className="w-3 h-3 text-destructive" />
+                          </div>
                           Не включено
                         </h4>
-                        <ul className="space-y-1">
+                        <ul className="space-y-2">
                           {tour.notIncluded.map((item, i) => (
-                            <li key={i} className="text-xs text-muted-foreground">• {item}</li>
+                            <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                              <XIcon className="w-3 h-3 text-destructive mt-1 flex-shrink-0" />
+                              {item}
+                            </li>
                           ))}
                         </ul>
                       </div>
 
                       {/* Meeting Point */}
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2 text-sm flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-accent" />
+                      <div className="bg-primary/5 rounded-xl p-4 border border-primary/20">
+                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                          <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">
+                            <MapPin className="w-3 h-3 text-primary" />
+                          </div>
                           Место встречи
                         </h4>
-                        <p className="text-xs text-muted-foreground">{tour.meetingPoint}</p>
-                        <p className="text-xs text-muted-foreground mt-1">Старт: {tour.startTime}</p>
+                        <p className="text-sm text-muted-foreground mb-2">{tour.meetingPoint}</p>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Clock className="w-3 h-3 text-primary" />
+                          <span className="text-muted-foreground">Старт: {tour.startTime}</span>
+                        </div>
                       </div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <div className="flex justify-center pt-2">
+                      <Button variant="gold" size="lg" className="min-w-[200px]" asChild>
+                        <Link to="/contact">
+                          Забронировать
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
