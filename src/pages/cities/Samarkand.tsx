@@ -10,104 +10,404 @@ import {
   Clock, 
   Users, 
   Car, 
-  Hotel, 
-  Star, 
   Check, 
   X as XIcon,
   ArrowRight,
-  MapPin
+  MapPin,
+  Globe,
+  DollarSign,
+  Footprints,
+  Train
 } from 'lucide-react';
 
 import heroRegistanImage from '@/assets/hero-registan.jpg';
 
+interface Tour {
+  id: string;
+  title: string;
+  route: string;
+  tourType: string;
+  duration: string;
+  startTime: string;
+  description: string;
+  program: string[];
+  included: string[];
+  notIncluded: string[];
+  languages: string;
+  groupType: string;
+  meetingPoint: string;
+  price: string;
+  badge?: string;
+  badgeColor?: string;
+}
+
 const Samarkand: React.FC = () => {
   const { language } = useLanguage();
 
-  const tours = [
+  const tours: Tour[] = [
     {
-      id: 'samarkand-highlights',
-      name: language === 'en' ? 'Samarkand Highlights Tour' : 'Обзорный тур по Самарканду',
-      duration: language === 'en' ? '1 Day' : '1 День',
-      durationDetail: language === 'en' ? '6–8 hours' : '6–8 часов',
-      tourType: language === 'en' ? 'Private' : 'Частный',
-      transport: language === 'en' ? 'Included' : 'Включён',
-      badge: language === 'en' ? 'Best Seller' : 'Бестселлер',
-      badgeColor: 'bg-accent text-accent-foreground',
-      highlights: [
-        language === 'en' ? 'Registan Square' : 'Площадь Регистан',
-        language === 'en' ? 'Bibi-Khanym Mosque' : 'Мечеть Биби-Ханым',
-        language === 'en' ? 'Shah-i-Zinda Necropolis' : 'Некрополь Шахи-Зинда',
-        language === 'en' ? 'Gur-e-Amir Mausoleum' : 'Мавзолей Гур-Эмир',
+      id: 'samarkand-first-introduction',
+      title: 'Самарканд — первое знакомство',
+      route: 'Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '4–5 часов',
+      startTime: 'В любое удобное время',
+      description: 'Обзорная экскурсия по главным достопримечательностям Самарканда. Включает посещение основных исторических памятников и местного базара.',
+      program: [
+        'Мавзолей Гур-Эмир',
+        'Некрополь Шахи-Зинда',
+        'Площадь Регистан',
+        'Обед в чайхане (плов)',
+        'Сиабский базар',
+        'Мечеть Биби-Ханым (внешний осмотр)'
       ],
-      description: language === 'en'
-        ? 'Perfect for travelers with limited time who want to see the most important sights in one day.'
-        : 'Идеально для путешественников с ограниченным временем, желающих увидеть главные достопримечательности за один день.',
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Подъезд к вашему адресу, возврат после экскурсии',
+      price: 'от $150 за 1–2 чел.',
+      badge: 'Популярный',
+      badgeColor: 'bg-accent text-accent-foreground'
     },
     {
-      id: 'samarkand-cultural',
-      name: language === 'en' ? 'Samarkand Cultural & Historical Tour' : 'Культурно-исторический тур по Самарканду',
-      duration: language === 'en' ? '2 Days' : '2 Дня',
-      durationDetail: language === 'en' ? '2 days' : '2 дня',
-      tourType: language === 'en' ? 'Private' : 'Частный',
-      transport: language === 'en' ? 'Optional hotel assistance' : 'Помощь с отелем',
-      badge: null,
-      highlights: [
-        language === 'en' ? 'All major Samarkand landmarks' : 'Все главные достопримечательности',
-        language === 'en' ? 'Ulugh Beg Observatory' : 'Обсерватория Улугбека',
-        language === 'en' ? 'Local craft workshops' : 'Мастерские местных ремёсел',
-        language === 'en' ? 'Traditional Uzbek cuisine experience' : 'Дегустация узбекской кухни',
+      id: 'samarkand-second-day',
+      title: 'Самарканд — второй день: тайны и ремёсла',
+      route: 'Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '4–5 часов',
+      startTime: 'В любое удобное время',
+      description: 'Экскурсия для тех, кто хочет узнать Самарканд глубже. Посещение ремесленных мастерских, древнего городища и обсерватории.',
+      program: [
+        'Фабрика шёлковых ковров',
+        'Деревня ремесленников Конигил',
+        'Обед в местной чайхане (национальные блюда)',
+        'Городище Афросиаб и музей',
+        'Могила святого Даниила',
+        'Обсерватория Мирзо Улугбека'
       ],
-      description: language === 'en'
-        ? 'Ideal for travelers who want a deeper understanding of Samarkand\'s history and culture.'
-        : 'Идеально для тех, кто хочет глубже понять историю и культуру Самарканда.',
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Подъезд к вашему адресу, возврат после экскурсии',
+      price: 'от $150 за 1–2 чел.'
     },
     {
-      id: 'samarkand-experience',
-      name: language === 'en' ? 'Samarkand & Surroundings Experience' : 'Самарканд и окрестности',
-      duration: language === 'en' ? '3 Days' : '3 Дня',
-      durationDetail: language === 'en' ? '3 days' : '3 дня',
-      tourType: language === 'en' ? 'Private' : 'Частный',
-      transport: language === 'en' ? 'Premium Experience' : 'Премиум опыт',
-      badge: language === 'en' ? 'Premium' : 'Премиум',
-      badgeColor: 'bg-primary text-primary-foreground',
-      highlights: [
-        language === 'en' ? 'Samarkand city tour' : 'Обзорный тур по городу',
-        language === 'en' ? 'Day trip to nearby historical villages' : 'Поездка в исторические деревни',
-        language === 'en' ? 'Local life and cultural immersion' : 'Погружение в местную культуру',
-        language === 'en' ? 'Flexible itinerary' : 'Гибкий маршрут',
+      id: 'samarkand-walking',
+      title: 'Пешком по самаркандским улочкам',
+      route: 'Самарканд',
+      tourType: 'Пешая',
+      duration: '4–5 часов',
+      startTime: 'В любое время дня',
+      description: 'Пешеходная экскурсия по историческому центру Самарканда. Возможность неспешно осмотреть достопримечательности и почувствовать атмосферу города.',
+      program: [
+        'Мавзолей Гур-Эмир',
+        'Площадь Регистан',
+        'Обед в местной чайхане',
+        'Мечеть Биби-Ханым',
+        'Сиабский базар',
+        'Некрополь Шахи-Зинда'
       ],
-      description: language === 'en'
-        ? 'Designed for guests seeking a relaxed pace and authentic experiences beyond the main attractions.'
-        : 'Для гостей, ищущих размеренный темп и аутентичный опыт за пределами главных достопримечательностей.',
+      included: ['Услуги гида'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'У памятника Амиру Темуру',
+      price: 'от $120 за 1–3 чел.'
     },
+    {
+      id: 'samarkand-morning-evening',
+      title: 'Утренняя или вечерняя экскурсия по Самарканду',
+      route: 'Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '4–5 часов',
+      startTime: 'В любое удобное время',
+      description: 'Обзорная экскурсия по историческому центру Самарканда в утреннее или вечернее время. Удобный формат для планирования дня.',
+      program: [
+        'Мавзолей Гур-Эмир',
+        'Площадь Регистан',
+        'Обед в местной чайхане',
+        'Мечеть Биби-Ханым',
+        'Сиабский базар',
+        'Некрополь Шахи-Зинда'
+      ],
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Ваш адрес, возврат после экскурсии',
+      price: 'от $150 за 1–2 чел.'
+    },
+    {
+      id: 'urgut-chor-chinor',
+      title: 'Из Самарканда в Ургут: сад Чор-Чинор и базар',
+      route: 'Самарканд — Ургут — Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '4–5 часов',
+      startTime: 'В любое время до 14:00',
+      description: 'Поездка в Ургут с посещением колоритного базара и древнего сада с тысячелетними чинарами. Возможность для медитации в уникальной атмосфере.',
+      program: [
+        'Большой базар Ургута',
+        'Главная мечеть Ургута',
+        'Сад Чор-Чинор, святой родник, маленькое медресе в дупле чинары'
+      ],
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Ваш адрес, возврат после экскурсии',
+      price: 'от $160 за 1–2 чел.'
+    },
+    {
+      id: 'kitab-pass',
+      title: 'Китабский перевал: горы, сады и тандыр',
+      route: 'Самарканд — Китабский перевал — Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '4–5 часов',
+      startTime: 'В любое время до 14:00',
+      description: 'Путешествие по живописным местам Узбекистана с посещением горных перевалов, фруктовых садов и дегустацией баранины из тандыра.',
+      program: [
+        'Скальные породы причудливой формы',
+        'Марсианские пейзажи',
+        'Камень-сердце',
+        'Базар на перевале',
+        'Плато дьявола',
+        'Обед в чайхане (баранина из тандыра)'
+      ],
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Ваш адрес',
+      price: 'от $170 за 1–2 чел.'
+    },
+    {
+      id: 'bukhara-by-train',
+      title: 'Бухара на поезде за один день',
+      route: 'Самарканд — Бухара — Самарканд',
+      tourType: 'Пешая',
+      duration: '08:31 выезд — возврат 18:00 или 19:13',
+      startTime: '08:31 — поезд «Афросиаб»',
+      description: 'Однодневная поездка в Бухару на скоростном поезде. Пешеходная экскурсия по историческому центру с осмотром главных достопримечательностей.',
+      program: [
+        'Ляби-Хауз',
+        'Комплекс Пои-Калон',
+        'Обед в местной чайхане',
+        'Медресе Улугбека и Абдулазизхана',
+        'Крепость Арк',
+        'Мечеть Маггоки-Аттори'
+      ],
+      included: ['Услуги гида', 'Встреча на вокзале Бухары', 'Билеты на поезда'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Вокзал Бухары (гид встречает с табличкой)',
+      price: 'от $150 за 1 чел.',
+      badge: 'На поезде',
+      badgeColor: 'bg-primary text-primary-foreground'
+    },
+    {
+      id: 'seven-lakes-tajikistan',
+      title: 'Маргузорские озёра и Фанские горы (Таджикистан)',
+      route: 'Самарканд — Пенджикент — Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '7–8 часов',
+      startTime: 'До 10:00',
+      description: 'Однодневное путешествие в Таджикистан к живописным Маргузорским озёрам в Фанских горах. Виза для многих стран не требуется (уточняйте).',
+      program: [
+        'Озеро Мижгон',
+        'Озеро Сою',
+        'Озеро Хушёр',
+        'Озеро Нофин',
+        'Озеро Хурдак',
+        'Озеро Маргузор',
+        'Озеро Хазорчашм',
+        'Пикник в горах'
+      ],
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Ваш адрес',
+      price: 'от $300 за 1–2 чел.'
+    },
+    {
+      id: 'boysun-derbend',
+      title: 'Красные каньоны Бойсуна и Дербендские теснины',
+      route: 'Самарканд — Бойсун — Дербенд — Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '12–15 часов',
+      startTime: 'Выезд в 01:00 (ночной поезд)',
+      description: 'Путешествие к красным каньонам Бойсуна и ущелью Дербенда на поездах. Выезд ночным поездом, возврат вечером.',
+      program: [
+        'Завтрак в местной чайхане',
+        'Красные каньоны Бойсуна (Кызыл)',
+        'Обед в местной чайхане',
+        'Кишлак Сайроб с тысячелетними чинарами',
+        'Ущелье Дербенда'
+      ],
+      included: ['Услуги гида', 'Автотранспорт', 'Билеты на поезда'],
+      notIncluded: ['Питание'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Вокзал Бойсуна',
+      price: 'от $400 за 1–2 чел.',
+      badge: 'На поезде',
+      badgeColor: 'bg-primary text-primary-foreground'
+    },
+    {
+      id: 'tashkent-by-train',
+      title: 'Ташкент на поезде за один день',
+      route: 'Самарканд — Ташкент — Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '10 часов',
+      startTime: 'Утро',
+      description: 'Однодневная поездка в столицу Узбекистана на скоростном поезде. Обзорная экскурсия по главным достопримечательностям Ташкента.',
+      program: [
+        'Комплекс Хаст-Имам',
+        'Базар Чорсу',
+        'Ташкент-Сити',
+        'Станции метро Ташкента'
+      ],
+      included: ['Услуги гида', 'Автотранспорт', 'Билеты на поезда'],
+      notIncluded: ['Питание'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Вокзал Ташкента',
+      price: 'от $150 за 1 чел.',
+      badge: 'На поезде',
+      badgeColor: 'bg-primary text-primary-foreground'
+    },
+    {
+      id: 'iskanderkul',
+      title: 'Озеро Искандеркуль (Таджикистан)',
+      route: 'Самарканд — Пенджикент — Самарканд',
+      tourType: 'Авто + пешая',
+      duration: 'Целый день',
+      startTime: 'Утро',
+      description: 'Путешествие к загадочному горному озеру Искандеркуль в Таджикистане. Виза для многих стран не требуется (уточняйте).',
+      program: [
+        'Фанские горы',
+        'Горные кишлаки',
+        'Водопад',
+        'Змеиное озеро',
+        'Озеро Искандеркуль'
+      ],
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Ваш адрес',
+      price: 'от $350 за 1–2 чел.'
+    },
+    {
+      id: 'hazrat-davud',
+      title: 'Пещера святого Хазрата Дауда',
+      route: 'Самарканд — Аксай — Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '4–5 часов',
+      startTime: 'До 10:00',
+      description: 'Паломническое путешествие к священной пещере Давида в горах близ Самарканда.',
+      program: [
+        'Село Аксай',
+        'Место борьбы Голиафа с Давидом',
+        'Священная пещера Давида'
+      ],
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Ваш адрес',
+      price: 'от $160 за 1–2 чел.'
+    },
+    {
+      id: 'shakhrisabz-day',
+      title: 'Шахрисабз за один день',
+      route: 'Самарканд — Шахрисабз — Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '6–7 часов',
+      startTime: 'До 10:00',
+      description: 'Поездка на родину Амира Темура через живописный Китабский перевал. Осмотр исторических памятников и обед с мясом из тандыра.',
+      program: [
+        'Горный Китабский перевал',
+        'Место съёмок фильма «Чингачгук»',
+        'Дворец Ак-Сарай',
+        'Комплекс Дору-т-Тиловат',
+        'Комплекс Дору-с-Саодат',
+        'Обед в горной чайхане (тандыр-гушт)'
+      ],
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Ваш адрес',
+      price: 'от $180 за 1–2 чел.'
+    },
+    {
+      id: 'zaamin-reserve',
+      title: 'Зааминский заповедник — «узбекская Швейцария»',
+      route: 'Самарканд — Джизак — Заамин — Самарканд',
+      tourType: 'Авто + пешая',
+      duration: '7–8 часов',
+      startTime: 'До 09:00',
+      description: 'Путешествие в Зааминский национальный парк с горными пейзажами, каньонами и современной инфраструктурой.',
+      program: [
+        'Зааминское водохранилище',
+        'Тысячелетняя арча',
+        'Каньон Чортанга',
+        'Шербулок',
+        'Стеклянный мост',
+        'Фуникулёры'
+      ],
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Ваш адрес',
+      price: 'от $300 за 1–2 чел.'
+    },
+    {
+      id: 'aydarkul-yurts',
+      title: 'Пустыня Кызылкум и озеро Айдаркуль с ночёвкой',
+      route: 'Самарканд — Нурата — Айдаркуль — Самарканд (или Бухара)',
+      tourType: 'Авто + пешая',
+      duration: '48 часов (2 дня)',
+      startTime: 'В любое время',
+      description: 'Двухдневное путешествие в пустыню с ночёвкой в юртовом лагере. Катание на верблюдах, закат в пустыне и посещение озера Айдаркуль.',
+      program: [
+        'Городок Нурата',
+        'Руины крепости Александра Македонского',
+        'Обед в местной чайхане',
+        'Катание на верблюдах в пустыне',
+        'Встреча заката в пустыне',
+        'Фольклорный концерт',
+        'Костёр и дискотека',
+        'Озеро Айдаркуль'
+      ],
+      included: ['Услуги гида', 'Автотранспорт', 'Проживание в юртах (1 ночь)', 'Завтрак и ужин'],
+      notIncluded: ['Личные расходы', 'Катание на верблюдах'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Ваш адрес',
+      price: 'от $500 за 1–2 чел.',
+      badge: 'С ночёвкой',
+      badgeColor: 'bg-accent text-accent-foreground'
+    }
   ];
 
-  const included = [
-    language === 'en' ? 'Professional local guide' : 'Профессиональный местный гид',
-    language === 'en' ? 'Private transportation' : 'Частный транспорт',
-    language === 'en' ? 'Entrance fees (where applicable)' : 'Входные билеты (где применимо)',
-    language === 'en' ? 'Hotel pickup and drop-off' : 'Трансфер от/до отеля',
-  ];
-
-  const notIncluded = [
-    language === 'en' ? 'Meals' : 'Питание',
-    language === 'en' ? 'Personal expenses' : 'Личные расходы',
-    language === 'en' ? 'Tips (optional)' : 'Чаевые (по желанию)',
-  ];
-
-  const whoFor = [
-    language === 'en' ? 'First-time visitors' : 'Путешественники впервые',
-    language === 'en' ? 'Couples and families' : 'Пары и семьи',
-    language === 'en' ? 'Cultural and history enthusiasts' : 'Любители культуры и истории',
-  ];
+  const getTourTypeIcon = (tourType: string) => {
+    if (tourType.includes('Пешая') && !tourType.includes('Авто')) {
+      return <Footprints className="w-4 h-4 text-accent" />;
+    }
+    return <Car className="w-4 h-4 text-accent" />;
+  };
 
   return (
     <Layout>
       <Helmet>
-        <title>{language === 'en' ? 'Samarkand Tours - Private Guided Tours | JamTrips' : 'Туры по Самарканду - Частные экскурсии | JamTrips'}</title>
-        <meta name="description" content={language === 'en' 
-          ? 'Private guided tours in Samarkand. Discover Registan Square, Shah-i-Zinda, and more with expert local guides. Book your Samarkand tour today.'
-          : 'Частные экскурсии по Самарканду. Откройте площадь Регистан, Шахи-Зинда и многое другое с опытными местными гидами.'} />
+        <title>Туры по Самарканду — Частные экскурсии | JamTrips</title>
+        <meta name="description" content="Частные экскурсии по Самарканду и окрестностям. Площадь Регистан, Шахи-Зинда, Фанские горы, Шахрисабз и многое другое. Индивидуальные туры с гидом." />
       </Helmet>
 
       {/* Hero Section */}
@@ -115,7 +415,7 @@ const Samarkand: React.FC = () => {
         <div className="absolute inset-0">
           <img
             src={heroRegistanImage}
-            alt="Samarkand Registan Square"
+            alt="Площадь Регистан в Самарканде"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-hero" />
@@ -124,17 +424,13 @@ const Samarkand: React.FC = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <MapPin className="w-5 h-5 text-accent" />
-            <span className="text-primary-foreground/80 font-medium">
-              {language === 'en' ? 'Uzbekistan' : 'Узбекистан'}
-            </span>
+            <span className="text-primary-foreground/80 font-medium">Узбекистан</span>
           </div>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 animate-fade-up">
-            {language === 'en' ? 'Samarkand Tours' : 'Туры по Самарканду'}
+            Туры по Самарканду
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            {language === 'en' 
-              ? 'Discover the timeless beauty of the Silk Road'
-              : 'Откройте вечную красоту Шёлкового пути'}
+            Откройте вечную красоту Шёлкового пути
           </p>
         </div>
       </section>
@@ -144,14 +440,10 @@ const Samarkand: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-lg md:text-xl text-foreground leading-relaxed mb-6">
-              {language === 'en'
-                ? 'Samarkand is one of the oldest continuously inhabited cities in Central Asia and a true jewel of the Silk Road. From the magnificent Registan Square to the sacred Shah-i-Zinda complex, the city offers an unmatched blend of history, architecture, and atmosphere.'
-                : 'Самарканд — один из древнейших непрерывно населённых городов Центральной Азии и настоящая жемчужина Шёлкового пути. От величественной площади Регистан до священного комплекса Шахи-Зинда город предлагает непревзойдённое сочетание истории, архитектуры и атмосферы.'}
+              Самарканд — один из древнейших городов Центральной Азии и жемчужина Шёлкового пути. От величественной площади Регистан до священного комплекса Шахи-Зинда город предлагает сочетание истории, архитектуры и атмосферы.
             </p>
             <p className="text-muted-foreground">
-              {language === 'en'
-                ? 'Our Samarkand tours are ideal for first-time visitors, culture lovers, and travelers seeking an authentic and well-organized experience.'
-                : 'Наши туры по Самарканду идеальны для тех, кто приезжает впервые, любителей культуры и путешественников, ищущих аутентичный и хорошо организованный опыт.'}
+              Все экскурсии индивидуальные, проводятся на любом языке. Мы подъедем к вашему адресу и вернём после экскурсии.
             </p>
           </div>
         </div>
@@ -162,85 +454,129 @@ const Samarkand: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-              {language === 'en' ? 'Tours in Samarkand' : 'Туры в Самарканде'}
+              Экскурсии из Самарканда
             </h2>
+            <p className="text-muted-foreground">
+              {tours.length} экскурсий на любой вкус
+            </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             {tours.map((tour, index) => (
               <Card 
                 key={tour.id} 
                 className="overflow-hidden border-border/50 shadow-soft hover:shadow-elevated transition-shadow duration-300 animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: `${index * 0.05}s` }}
               >
                 <CardContent className="p-6 md:p-8">
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-                    {/* Tour Info */}
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-3 mb-4">
-                        <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground">
-                          {tour.name}
-                        </h3>
-                        {tour.badge && (
-                          <Badge className={tour.badgeColor}>
-                            {tour.badge}
-                          </Badge>
-                        )}
-                      </div>
-
-                      {/* Tour Meta */}
-                      <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-accent" />
-                          <span>{language === 'en' ? 'Duration:' : 'Длительность:'} {tour.durationDetail}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Users className="w-4 h-4 text-accent" />
-                          <span>{language === 'en' ? 'Tour Type:' : 'Тип тура:'} {tour.tourType}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          {tour.transport.includes('hotel') || tour.transport.includes('отел') ? (
-                            <Hotel className="w-4 h-4 text-accent" />
-                          ) : tour.transport.includes('Premium') || tour.transport.includes('Премиум') ? (
-                            <Star className="w-4 h-4 text-accent" />
-                          ) : (
-                            <Car className="w-4 h-4 text-accent" />
+                  <div className="flex flex-col gap-6">
+                    {/* Header */}
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-3 mb-2">
+                          <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground">
+                            {tour.title}
+                          </h3>
+                          {tour.badge && (
+                            <Badge className={tour.badgeColor}>
+                              {tour.badge}
+                            </Badge>
                           )}
-                          <span>{tour.transport}</span>
+                        </div>
+                        <p className="text-muted-foreground text-sm mb-4">
+                          {tour.description}
+                        </p>
+
+                        {/* Tour Meta */}
+                        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="w-4 h-4 text-accent" />
+                            <span>{tour.route}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            {getTourTypeIcon(tour.tourType)}
+                            <span>{tour.tourType}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Clock className="w-4 h-4 text-accent" />
+                            <span>{tour.duration}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Globe className="w-4 h-4 text-accent" />
+                            <span>{tour.languages}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Users className="w-4 h-4 text-accent" />
+                            <span>{tour.groupType}</span>
+                          </div>
                         </div>
                       </div>
 
-                      {/* Highlights */}
-                      <div className="mb-4">
-                        <h4 className="font-semibold text-foreground mb-3">
-                          {language === 'en' ? 'Highlights' : 'Основные места'}
+                      {/* Price & CTA */}
+                      <div className="flex flex-col gap-3 lg:min-w-[200px] lg:text-right">
+                        <div className="flex items-center gap-2 lg:justify-end">
+                          <DollarSign className="w-5 h-5 text-accent" />
+                          <span className="text-xl font-bold text-foreground">{tour.price}</span>
+                        </div>
+                        <Button variant="gold" className="w-full" asChild>
+                          <Link to="/contact">
+                            Забронировать
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Program */}
+                    <div className="border-t border-border pt-4">
+                      <h4 className="font-semibold text-foreground mb-3">Программа</h4>
+                      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                        {tour.program.map((item, i) => (
+                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Details Grid */}
+                    <div className="grid md:grid-cols-3 gap-4 border-t border-border pt-4">
+                      {/* Included */}
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2 text-sm flex items-center gap-2">
+                          <Check className="w-4 h-4 text-accent" />
+                          Включено
                         </h4>
-                        <ul className="grid sm:grid-cols-2 gap-2">
-                          {tour.highlights.map((highlight, i) => (
-                            <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                              {highlight}
-                            </li>
+                        <ul className="space-y-1">
+                          {tour.included.map((item, i) => (
+                            <li key={i} className="text-xs text-muted-foreground">• {item}</li>
                           ))}
                         </ul>
                       </div>
 
-                      <p className="text-muted-foreground text-sm">
-                        {tour.description}
-                      </p>
-                    </div>
+                      {/* Not Included */}
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2 text-sm flex items-center gap-2">
+                          <XIcon className="w-4 h-4 text-destructive" />
+                          Не включено
+                        </h4>
+                        <ul className="space-y-1">
+                          {tour.notIncluded.map((item, i) => (
+                            <li key={i} className="text-xs text-muted-foreground">• {item}</li>
+                          ))}
+                        </ul>
+                      </div>
 
-                    {/* Actions */}
-                    <div className="flex flex-col gap-3 lg:min-w-[200px]">
-                      <Button variant="gold" className="w-full" asChild>
-                        <Link to="/contact">
-                          {language === 'en' ? 'Book / Enquire' : 'Забронировать'}
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Link>
-                      </Button>
-                      <Button variant="outline" className="w-full">
-                        {language === 'en' ? 'View Details' : 'Подробнее'}
-                      </Button>
+                      {/* Meeting Point */}
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2 text-sm flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-accent" />
+                          Место встречи
+                        </h4>
+                        <p className="text-xs text-muted-foreground">{tour.meetingPoint}</p>
+                        <p className="text-xs text-muted-foreground mt-1">Старт: {tour.startTime}</p>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -250,96 +586,28 @@ const Samarkand: React.FC = () => {
         </div>
       </section>
 
-      {/* Tour Details Section */}
-      <section className="py-16 md:py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
-              {language === 'en' ? 'Tour Overview' : 'Обзор туров'}
-            </h2>
-            
-            <p className="text-muted-foreground text-center mb-12">
-              {language === 'en'
-                ? 'This private tour offers a carefully planned itinerary covering the most important sights while allowing flexibility and comfort throughout the day.'
-                : 'Этот частный тур предлагает тщательно спланированный маршрут, охватывающий важнейшие достопримечательности, с гибкостью и комфортом на протяжении всего дня.'}
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* What's Included */}
-              <Card className="border-border/50">
-                <CardContent className="p-6">
-                  <h3 className="font-serif text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                    <Check className="w-5 h-5 text-accent" />
-                    {language === 'en' ? "What's Included" : 'Включено'}
-                  </h3>
-                  <ul className="space-y-3">
-                    {included.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              {/* Not Included */}
-              <Card className="border-border/50">
-                <CardContent className="p-6">
-                  <h3 className="font-serif text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                    <XIcon className="w-5 h-5 text-destructive" />
-                    {language === 'en' ? 'Not Included' : 'Не включено'}
-                  </h3>
-                  <ul className="space-y-3">
-                    {notIncluded.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <XIcon className="w-4 h-4 text-destructive/70 flex-shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              {/* Who This Tour Is For */}
-              <Card className="border-border/50">
-                <CardContent className="p-6">
-                  <h3 className="font-serif text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                    <Users className="w-5 h-5 text-accent" />
-                    {language === 'en' ? 'Who This Tour Is For' : 'Для кого этот тур'}
-                  </h3>
-                  <ul className="space-y-3">
-                    {whoFor.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
-            {language === 'en' ? 'Ready to explore Samarkand?' : 'Готовы исследовать Самарканд?'}
+            Готовы исследовать Самарканд?
           </h2>
           <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            {language === 'en'
-              ? 'Let us create a personalized tour tailored to your schedule and interests.'
-              : 'Позвольте нам создать персональный тур, адаптированный под ваше расписание и интересы.'}
+            Свяжитесь с нами, чтобы забронировать экскурсию или получить консультацию по выбору маршрута.
           </p>
-          <Button variant="hero" size="xl" asChild>
-            <Link to="/contact">
-              {language === 'en' ? 'Request This Tour' : 'Заказать этот тур'}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </Button>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button 
+              variant="secondary" 
+              size="lg" 
+              className="bg-white text-primary hover:bg-white/90"
+              asChild
+            >
+              <Link to="/contact">
+                Связаться с нами
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>
