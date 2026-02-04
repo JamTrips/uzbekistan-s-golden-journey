@@ -13,72 +13,168 @@ import {
   Check, 
   X as XIcon,
   ArrowRight,
-  MapPin
+  MapPin,
+  Footprints,
+  Train,
+  Plane,
+  Globe,
+  Navigation
 } from 'lucide-react';
 
 import tashkentImage from '@/assets/tashkent.jpg';
 
+interface Tour {
+  id: string;
+  title: string;
+  route: string;
+  tourType: string;
+  tourTypeIcon: 'car' | 'walking' | 'train' | 'plane';
+  duration: string;
+  startTime: string;
+  description: string;
+  program: string[];
+  included: string[];
+  notIncluded: string[];
+  languages: string;
+  groupType: string;
+  meetingPoint: string;
+  price: string;
+}
+
 const Tashkent: React.FC = () => {
   const { language } = useLanguage();
 
-  const tours = [
+  const tours: Tour[] = [
     {
-      id: 'tashkent-city',
-      name: language === 'en' ? 'Tashkent City Tour' : 'Обзорный тур по Ташкенту',
-      duration: language === 'en' ? '1 Day' : '1 День',
-      durationDetail: language === 'en' ? '6–8 hours' : '6–8 часов',
-      tourType: language === 'en' ? 'Private' : 'Частный',
-      transport: language === 'en' ? 'Included' : 'Включён',
-      badge: language === 'en' ? 'Popular' : 'Популярный',
-      badgeColor: 'bg-accent text-accent-foreground',
-      highlights: [
-        language === 'en' ? 'Khast Imam Complex' : 'Комплекс Хаст-Имам',
-        language === 'en' ? 'Chorsu Bazaar' : 'Базар Чорсу',
-        language === 'en' ? 'Tashkent Metro' : 'Метро Ташкента',
-        language === 'en' ? 'Independence Square' : 'Площадь Независимости',
+      id: 'tashkent-first-introduction',
+      title: 'Ташкент — первое знакомство с городом',
+      route: 'Ташкент',
+      tourType: 'Авто + пешая',
+      tourTypeIcon: 'car',
+      duration: '4–5 часов',
+      startTime: 'В любое удобное время',
+      description: 'Обзорная экскурсия по основным достопримечательностям столицы Узбекистана. Знакомство с историческим центром, базарами и современной архитектурой города.',
+      program: [
+        'Площадь Хазрати Имам',
+        'Метро Ташкента',
+        'Сквер Амира Темура',
+        'Центр плова «Беш Казан»',
+        'Дворец Романовых',
+        'Главный базар «Чорсу»'
       ],
-      description: language === 'en'
-        ? 'Discover the modern capital of Uzbekistan, blending Soviet heritage with ancient traditions.'
-        : 'Откройте современную столицу Узбекистана, сочетающую советское наследие с древними традициями.',
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Подъезд к вашему адресу, после экскурсии доставка обратно',
+      price: 'от $160 за 1–2 чел.'
     },
     {
-      id: 'tashkent-extended',
-      name: language === 'en' ? 'Tashkent Extended Experience' : 'Расширенный тур по Ташкенту',
-      duration: language === 'en' ? '2 Days' : '2 Дня',
-      durationDetail: language === 'en' ? '2 days' : '2 дня',
-      tourType: language === 'en' ? 'Private' : 'Частный',
-      transport: language === 'en' ? 'Included' : 'Включён',
-      badge: null,
-      highlights: [
-        language === 'en' ? 'All major Tashkent landmarks' : 'Все главные достопримечательности',
-        language === 'en' ? 'Applied Arts Museum' : 'Музей прикладного искусства',
-        language === 'en' ? 'Local cuisine experience' : 'Дегустация местной кухни',
-        language === 'en' ? 'Evening city lights tour' : 'Вечерний тур по огням города',
+      id: 'sun-institute-chimgan',
+      title: 'В Институт Солнца и горы Чимган',
+      route: 'Ташкент — Чимган — Ташкент',
+      tourType: 'Авто + пешая',
+      tourTypeIcon: 'car',
+      duration: '5–7 часов',
+      startTime: 'В любое удобное время',
+      description: 'Однодневное путешествие из Ташкента к горам Чимган. Посещение научного Института Солнца, живописного водохранилища и подъём на канатной дороге.',
+      program: [
+        'Институт Солнца',
+        'Чимганские горы',
+        'Водохранилище Чарвак',
+        'Канатная дорога'
       ],
-      description: language === 'en'
-        ? 'A comprehensive tour for those who want to fully experience the capital city.'
-        : 'Полноценный тур для тех, кто хочет полностью познать столицу.',
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Подъезд к вашему адресу, после экскурсии доставка обратно',
+      price: 'от $220 за 1–2 чел.'
     },
+    {
+      id: 'tian-shan-mountains',
+      title: 'К горам Тянь-Шаня из Ташкента за один день',
+      route: 'Ташкент — Тянь-Шань — Ташкент',
+      tourType: 'Авто + пешая',
+      tourTypeIcon: 'car',
+      duration: '4–6 часов',
+      startTime: 'В любое удобное время',
+      description: 'Однодневная экскурсия к живописным горам Тянь-Шаня. Посещение горнолыжного курорта, исторического посёлка и водохранилища.',
+      program: [
+        'Горнолыжный курорт Амирсай',
+        'Посёлок Бричмулла',
+        'Чарвакское водохранилище',
+        'Роща из вековых чинар',
+        'Амирсой'
+      ],
+      included: ['Услуги гида', 'Автотранспорт'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Подъезд к вашему адресу, после экскурсии доставка обратно',
+      price: 'от $180 за 1–2 чел.'
+    },
+    {
+      id: 'tashkent-samarkand-train',
+      title: 'Из Ташкента в Самарканд на скоростном поезде',
+      route: 'Ташкент — Самарканд — Ташкент',
+      tourType: 'Авто + пешая + поезд',
+      tourTypeIcon: 'train',
+      duration: 'Целый день',
+      startTime: 'Утро (ориентировочно 08:00)',
+      description: 'Однодневная поездка из Ташкента в Самарканд на скоростном поезде «Афросияб». Обзорная экскурсия по главным достопримечательностям древнего города с возвращением вечером.',
+      program: [
+        'Гур Эмир',
+        'Регистан',
+        'Обед в местной чайхане',
+        'Биби Ханым',
+        'Базар',
+        'Шахи-Зинда'
+      ],
+      included: ['Услуги гида', 'Автотранспорт', 'Билеты на поезда'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Сбор на Северном вокзале Ташкента, встреча гида на вокзале Самарканда. График поездов можно подобрать по запросу.',
+      price: 'от $160 за чел.'
+    },
+    {
+      id: 'tashkent-bukhara-flight',
+      title: 'Из Ташкента в Бухару самолётом',
+      route: 'Ташкент — Бухара — Ташкент',
+      tourType: 'Авто + пешая + самолёт + поезд',
+      tourTypeIcon: 'plane',
+      duration: 'Целый день',
+      startTime: '07:30 (вылет)',
+      description: 'Однодневная экскурсия в Бухару с перелётом утром и возвращением на поезде вечером. Обзор основных исторических памятников древнего города.',
+      program: [
+        'Комплекс Ляби-Хауз',
+        'Мечеть Магоки-Аттори',
+        'Памятник Ходже Насреддину',
+        'Ансамбль Пои-Калон',
+        'Крепость Арк'
+      ],
+      included: ['Услуги гида', 'Автотранспорт', 'Билеты на поезда', 'Авиабилет'],
+      notIncluded: ['Питание', 'Входные билеты на памятники'],
+      languages: 'Любой язык',
+      groupType: 'Индивидуальная (только ваша группа)',
+      meetingPoint: 'Встреча гида в аэропорту Бухары. Расписание: 07:30 вылет из Ташкента, 09:00 прибытие, 15:30 поезд обратно, 19:45 прибытие в Ташкент.',
+      price: 'от $250 за чел.'
+    }
   ];
 
-  const included = [
-    language === 'en' ? 'Professional local guide' : 'Профессиональный местный гид',
-    language === 'en' ? 'Private transportation' : 'Частный транспорт',
-    language === 'en' ? 'Entrance fees (where applicable)' : 'Входные билеты (где применимо)',
-    language === 'en' ? 'Hotel pickup and drop-off' : 'Трансфер от/до отеля',
-  ];
-
-  const notIncluded = [
-    language === 'en' ? 'Meals' : 'Питание',
-    language === 'en' ? 'Personal expenses' : 'Личные расходы',
-    language === 'en' ? 'Tips (optional)' : 'Чаевые (по желанию)',
-  ];
-
-  const whoFor = [
-    language === 'en' ? 'First-time visitors' : 'Путешественники впервые',
-    language === 'en' ? 'Couples and families' : 'Пары и семьи',
-    language === 'en' ? 'Cultural and history enthusiasts' : 'Любители культуры и истории',
-  ];
+  const getTourIcon = (type: Tour['tourTypeIcon']) => {
+    switch (type) {
+      case 'walking':
+        return <Footprints className="w-4 h-4" />;
+      case 'train':
+        return <Train className="w-4 h-4" />;
+      case 'plane':
+        return <Plane className="w-4 h-4" />;
+      default:
+        return <Car className="w-4 h-4" />;
+    }
+  };
 
   return (
     <Layout>
@@ -136,140 +232,151 @@ const Tashkent: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-              {language === 'en' ? 'Tours in Tashkent' : 'Туры в Ташкенте'}
+              {language === 'en' ? 'Tours in Tashkent' : 'Экскурсии в Ташкенте'}
             </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              {language === 'en' 
+                ? 'Choose from our carefully designed private tours'
+                : 'Выберите из наших тщательно разработанных индивидуальных экскурсий'}
+            </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="grid gap-8">
             {tours.map((tour, index) => (
               <Card 
                 key={tour.id} 
-                className="overflow-hidden border-border/50 shadow-soft hover:shadow-elevated transition-shadow duration-300 animate-fade-up"
+                className="border-2 border-border bg-card shadow-md hover:shadow-lg transition-all duration-300 animate-fade-up overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-6 md:p-8">
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-3 mb-4">
-                        <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground">
-                          {tour.name}
-                        </h3>
-                        {tour.badge && (
-                          <Badge className={tour.badgeColor}>
-                            {tour.badge}
-                          </Badge>
-                        )}
+                {/* Card Header */}
+                <div className="bg-secondary/50 px-6 py-4 border-b border-border">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-accent/20 rounded-lg">
+                        {getTourIcon(tour.tourTypeIcon)}
                       </div>
+                      <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground">
+                        {tour.title}
+                      </h3>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline" className="text-accent border-accent">
+                        {tour.tourType}
+                      </Badge>
+                      <span className="font-bold text-lg text-accent">{tour.price}</span>
+                    </div>
+                  </div>
+                </div>
 
-                      <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-accent" />
-                          <span>{language === 'en' ? 'Duration:' : 'Длительность:'} {tour.durationDetail}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Users className="w-4 h-4 text-accent" />
-                          <span>{language === 'en' ? 'Tour Type:' : 'Тип тура:'} {tour.tourType}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Car className="w-4 h-4 text-accent" />
-                          <span>{tour.transport}</span>
-                        </div>
+                <CardContent className="p-6">
+                  {/* Meta Info Grid */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 p-4 bg-muted/50 rounded-lg">
+                    <div className="flex items-center gap-2">
+                      <Navigation className="w-4 h-4 text-accent" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Маршрут</p>
+                        <p className="text-sm font-medium">{tour.route}</p>
                       </div>
-
-                      <div className="mb-4">
-                        <h4 className="font-semibold text-foreground mb-3">
-                          {language === 'en' ? 'Highlights' : 'Основные места'}
-                        </h4>
-                        <ul className="grid sm:grid-cols-2 gap-2">
-                          {tour.highlights.map((highlight, i) => (
-                            <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                              {highlight}
-                            </li>
-                          ))}
-                        </ul>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-accent" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Длительность</p>
+                        <p className="text-sm font-medium">{tour.duration}</p>
                       </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Globe className="w-4 h-4 text-accent" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Языки</p>
+                        <p className="text-sm font-medium">{tour.languages}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-accent" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Группа</p>
+                        <p className="text-sm font-medium">Индивидуальная</p>
+                      </div>
+                    </div>
+                  </div>
 
-                      <p className="text-muted-foreground text-sm">
-                        {tour.description}
-                      </p>
+                  {/* Description */}
+                  <p className="text-muted-foreground mb-6">{tour.description}</p>
+
+                  {/* Program */}
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-accent" />
+                      Программа
+                    </h4>
+                    <div className="bg-muted/30 rounded-lg p-4 border border-border">
+                      <ol className="space-y-2">
+                        {tour.program.map((item, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm">
+                            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center text-xs font-bold">
+                              {i + 1}
+                            </span>
+                            <span className="text-foreground pt-0.5">{item}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  </div>
+
+                  {/* Included / Not Included / Meeting Point */}
+                  <div className="grid md:grid-cols-3 gap-4 mb-6">
+                    <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
+                      <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <Check className="w-4 h-4 text-accent" />
+                        Включено
+                      </h4>
+                      <ul className="space-y-2">
+                        {tour.included.map((item, i) => (
+                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <Check className="w-3 h-3 text-accent flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    <div className="flex flex-col gap-3 lg:min-w-[200px]">
-                      <Button variant="gold" className="w-full" asChild>
-                        <Link to="/contact">
-                          {language === 'en' ? 'Book / Enquire' : 'Забронировать'}
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Link>
-                      </Button>
-                      <Button variant="outline" className="w-full">
-                        {language === 'en' ? 'View Details' : 'Подробнее'}
-                      </Button>
+                    <div className="bg-destructive/5 border border-destructive/20 rounded-lg p-4">
+                      <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <XIcon className="w-4 h-4 text-destructive" />
+                        Не включено
+                      </h4>
+                      <ul className="space-y-2">
+                        {tour.notIncluded.map((item, i) => (
+                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <XIcon className="w-3 h-3 text-destructive/70 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
+
+                    <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+                      <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-primary" />
+                        Место встречи
+                      </h4>
+                      <p className="text-sm text-muted-foreground">{tour.meetingPoint}</p>
+                    </div>
+                  </div>
+
+                  {/* Book Button */}
+                  <div className="flex justify-center">
+                    <Button variant="gold" size="lg" asChild>
+                      <Link to="/contact">
+                        Забронировать
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tour Details Section */}
-      <section className="py-16 md:py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="border-border/50">
-                <CardContent className="p-6">
-                  <h3 className="font-serif text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                    <Check className="w-5 h-5 text-accent" />
-                    {language === 'en' ? "What's Included" : 'Включено'}
-                  </h3>
-                  <ul className="space-y-3">
-                    {included.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border/50">
-                <CardContent className="p-6">
-                  <h3 className="font-serif text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                    <XIcon className="w-5 h-5 text-destructive" />
-                    {language === 'en' ? 'Not Included' : 'Не включено'}
-                  </h3>
-                  <ul className="space-y-3">
-                    {notIncluded.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <XIcon className="w-4 h-4 text-destructive/70 flex-shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border/50">
-                <CardContent className="p-6">
-                  <h3 className="font-serif text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                    <Users className="w-5 h-5 text-accent" />
-                    {language === 'en' ? 'Who This Tour Is For' : 'Для кого этот тур'}
-                  </h3>
-                  <ul className="space-y-3">
-                    {whoFor.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </section>
@@ -287,7 +394,7 @@ const Tashkent: React.FC = () => {
           </p>
           <Button variant="hero" size="xl" asChild>
             <Link to="/contact">
-              {language === 'en' ? 'Request This Tour' : 'Заказать этот тур'}
+              {language === 'en' ? 'Request This Tour' : 'Заказать тур'}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </Button>
