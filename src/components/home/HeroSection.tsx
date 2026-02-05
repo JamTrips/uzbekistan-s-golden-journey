@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import heroImage from '@/assets/hero-registan.jpg';
 
 const HeroSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -47,8 +47,8 @@ const HeroSection: React.FC = () => {
               </Link>
             </Button>
             <Button variant="heroOutline" asChild>
-              <Link to="/private-tours">
-                {t('hero.explore')}
+              <Link to="/destinations">
+                {language === 'en' ? 'City Excursions' : 'Экскурсии по городам'}
               </Link>
             </Button>
           </div>
