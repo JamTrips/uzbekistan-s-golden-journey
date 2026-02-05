@@ -1,18 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import ContactButtons from '@/components/common/ContactButtons';
 import { 
   Clock, 
   Users, 
   Car, 
   Check, 
   X as XIcon,
-  ArrowRight,
   MapPin,
   Globe,
   DollarSign,
@@ -595,14 +593,10 @@ const Samarkand: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* CTA Button */}
-                    <div className="flex justify-center pt-2">
-                      <Button variant="gold" size="lg" className="min-w-[200px]" asChild>
-                        <Link to="/contact">
-                          Забронировать
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Link>
-                      </Button>
+                    {/* Contact Buttons */}
+                    <div className="pt-4 border-t border-border">
+                      <p className="text-sm text-muted-foreground text-center mb-3">Забронировать:</p>
+                      <ContactButtons variant="horizontal" />
                     </div>
                   </div>
                 </CardContent>
@@ -621,19 +615,7 @@ const Samarkand: React.FC = () => {
           <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
             Свяжитесь с нами, чтобы забронировать экскурсию или получить консультацию по выбору маршрута.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button 
-              variant="secondary" 
-              size="lg" 
-              className="bg-white text-primary hover:bg-white/90"
-              asChild
-            >
-              <Link to="/contact">
-                Связаться с нами
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Button>
-          </div>
+          <ContactButtons variant="horizontal" />
         </div>
       </section>
     </Layout>

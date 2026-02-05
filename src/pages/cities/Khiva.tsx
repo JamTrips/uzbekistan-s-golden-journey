@@ -1,18 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import ContactButtons from '@/components/common/ContactButtons';
 import { 
   Clock, 
   Users, 
   Car, 
   Check, 
   X as XIcon,
-  ArrowRight,
   MapPin
 } from 'lucide-react';
 
@@ -196,15 +195,8 @@ const Khiva: React.FC = () => {
                     </div>
 
                     <div className="flex flex-col gap-3 lg:min-w-[200px]">
-                      <Button variant="gold" className="w-full" asChild>
-                        <Link to="/contact">
-                          {language === 'en' ? 'Book / Enquire' : 'Забронировать'}
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Link>
-                      </Button>
-                      <Button variant="outline" className="w-full">
-                        {language === 'en' ? 'View Details' : 'Подробнее'}
-                      </Button>
+                      <p className="text-sm text-muted-foreground text-center">Забронировать:</p>
+                      <ContactButtons variant="vertical" size="sm" />
                     </div>
                   </div>
                 </CardContent>
@@ -285,12 +277,7 @@ const Khiva: React.FC = () => {
               ? 'Let us create a personalized tour tailored to your schedule and interests.'
               : 'Позвольте нам создать персональный тур, адаптированный под ваше расписание и интересы.'}
           </p>
-          <Button variant="hero" size="xl" asChild>
-            <Link to="/contact">
-              {language === 'en' ? 'Request This Tour' : 'Заказать этот тур'}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </Button>
+          <ContactButtons variant="horizontal" />
         </div>
       </section>
     </Layout>

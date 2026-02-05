@@ -1,10 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { Clock, MapPin, ArrowRight, Calendar } from 'lucide-react';
+import { Clock, MapPin, Calendar } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import ContactButtons from '@/components/common/ContactButtons';
 import samarkandImage from '@/assets/hero-registan.jpg';
 import bukharaImage from '@/assets/bukhara.jpg';
 import khivaImage from '@/assets/khiva.jpg';
@@ -172,12 +171,7 @@ const MultiDayTours: React.FC = () => {
                           <p className="text-2xl font-bold text-foreground">${tour.price}</p>
                           <span className="text-xs text-muted-foreground">{t('tours.perPerson')}</span>
                         </div>
-                        <Button variant="gold" asChild>
-                          <Link to="/contact">
-                            {t('tours.bookNow')}
-                            <ArrowRight className="w-4 h-4 ml-1" />
-                          </Link>
-                        </Button>
+                        <ContactButtons variant="horizontal" size="sm" />
                       </div>
                     </div>
                   </div>
