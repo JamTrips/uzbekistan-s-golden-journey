@@ -50,12 +50,12 @@ const Transfers: React.FC = () => {
   ];
 
   const routes = [
-    { from: 'Tashkent', to: 'Samarkand', distance: '300 km', time: '4h', price: 100 },
-    { from: 'Samarkand', to: 'Bukhara', distance: '270 km', time: '3.5h', price: 90 },
-    { from: 'Bukhara', to: 'Khiva', distance: '450 km', time: '6h', price: 150 },
-    { from: 'Tashkent', to: 'Bukhara', distance: '570 km', time: '7h', price: 170 },
-    { from: 'Samarkand', to: 'Shahrisabz', distance: '90 km', time: '1.5h', price: 50 },
-    { from: 'Tashkent Airport', to: 'Tashkent City', distance: '10 km', time: '30min', price: 25 },
+    { from: 'Tashkent', to: 'Samarkand', distance: '300 km', time: '4h' },
+    { from: 'Samarkand', to: 'Bukhara', distance: '270 km', time: '3.5h' },
+    { from: 'Bukhara', to: 'Khiva', distance: '450 km', time: '6h' },
+    { from: 'Tashkent', to: 'Bukhara', distance: '570 km', time: '7h' },
+    { from: 'Samarkand', to: 'Shahrisabz', distance: '90 km', time: '1.5h' },
+    { from: 'Tashkent Airport', to: 'Tashkent City', distance: '10 km', time: '30min' },
   ];
 
   const trainRoutes = [
@@ -221,9 +221,6 @@ const Transfers: React.FC = () => {
                       <th className="px-6 py-4 text-left font-semibold">
                         {language === 'en' ? 'Duration' : 'Время'}
                       </th>
-                      <th className="px-6 py-4 text-left font-semibold">
-                        {language === 'en' ? 'From' : 'От'}
-                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -236,7 +233,6 @@ const Transfers: React.FC = () => {
                         </td>
                         <td className="px-6 py-4 text-muted-foreground">{route.distance}</td>
                         <td className="px-6 py-4 text-muted-foreground">{route.time}</td>
-                        <td className="px-6 py-4 font-bold text-foreground">${route.price}</td>
                       </tr>
                     ))}
                   </tbody>
