@@ -1,18 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import ContactButtons from '@/components/common/ContactButtons';
 import { 
   Clock, 
   Users, 
   Car, 
   Check, 
   X as XIcon,
-  ArrowRight,
   MapPin,
   Footprints,
   Globe,
@@ -337,14 +335,10 @@ const Bukhara: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Book Button */}
-                  <div className="flex justify-center">
-                    <Button variant="gold" size="lg" asChild>
-                      <Link to="/contact">
-                        Забронировать
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Link>
-                    </Button>
+                  {/* Contact Buttons */}
+                  <div className="pt-4 border-t border-border">
+                    <p className="text-sm text-muted-foreground text-center mb-3">Забронировать:</p>
+                    <ContactButtons variant="horizontal" />
                   </div>
                 </CardContent>
               </Card>
@@ -364,12 +358,7 @@ const Bukhara: React.FC = () => {
               ? 'Let us create a personalized tour tailored to your schedule and interests.'
               : 'Позвольте нам создать персональный тур, адаптированный под ваше расписание и интересы.'}
           </p>
-          <Button variant="hero" size="xl" asChild>
-            <Link to="/contact">
-              {language === 'en' ? 'Request This Tour' : 'Заказать тур'}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </Button>
+          <ContactButtons variant="horizontal" />
         </div>
       </section>
     </Layout>

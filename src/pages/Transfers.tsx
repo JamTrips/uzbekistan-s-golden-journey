@@ -5,6 +5,7 @@ import { Car, Plane, Users, Clock, Shield, ArrowRight, Train } from 'lucide-reac
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import ContactButtons from '@/components/common/ContactButtons';
 
 const Transfers: React.FC = () => {
   const { t, language } = useLanguage();
@@ -275,12 +276,7 @@ const Transfers: React.FC = () => {
                 ? 'Contact us to arrange your airport pickup or city-to-city transfer.'
                 : 'Свяжитесь с нами, чтобы организовать трансфер.'}
             </p>
-            <Button variant="gold" size="xl" asChild>
-              <Link to="/contact">
-                {language === 'en' ? 'Get a Quote' : 'Получить цену'}
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
+            <ContactButtons variant="horizontal" />
           </div>
         </section>
       </Layout>
