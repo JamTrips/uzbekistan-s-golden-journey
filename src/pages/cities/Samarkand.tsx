@@ -45,358 +45,322 @@ const Samarkand: React.FC = () => {
   const tours: Tour[] = [
     {
       id: 'samarkand-first-introduction',
-      title: 'Самарканд — первое знакомство',
-      route: 'Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '4–5 часов',
-      startTime: 'В любое удобное время',
-      description: 'Обзорная экскурсия по главным достопримечательностям Самарканда. Включает посещение основных исторических памятников и местного базара.',
-      program: [
-        'Мавзолей Гур-Эмир',
-        'Некрополь Шахи-Зинда',
-        'Площадь Регистан',
-        'Обед в чайхане (плов)',
-        'Сиабский базар',
-        'Мечеть Биби-Ханым (внешний осмотр)'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Подъезд к вашему адресу, возврат после экскурсии',
-      price: 'от $150 за 1–2 чел.',
-      badge: 'Популярный',
+      title: language === 'en' ? 'Samarkand — First Introduction' : 'Самарканд — первое знакомство',
+      route: language === 'en' ? 'Samarkand' : 'Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Any convenient time' : 'В любое удобное время',
+      description: language === 'en'
+        ? 'A sightseeing tour of the main attractions of Samarkand. Includes visits to the main historical monuments and the local bazaar.'
+        : 'Обзорная экскурсия по главным достопримечательностям Самарканда. Включает посещение основных исторических памятников и местного базара.',
+      program: language === 'en'
+        ? ['Gur-Emir Mausoleum', 'Shah-i-Zinda Necropolis', 'Registan Square', 'Lunch at a teahouse (plov)', 'Siyab Bazaar', 'Bibi-Khanym Mosque (exterior)']
+        : ['Мавзолей Гур-Эмир', 'Некрополь Шахи-Зинда', 'Площадь Регистан', 'Обед в чайхане (плов)', 'Сиабский базар', 'Мечеть Биби-Ханым (внешний осмотр)'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Pickup at your address, drop-off after the tour' : 'Подъезд к вашему адресу, возврат после экскурсии',
+      price: language === 'en' ? 'from $150 for 1–2 pax' : 'от $150 за 1–2 чел.',
+      badge: language === 'en' ? 'Popular' : 'Популярный',
       badgeColor: 'bg-accent text-accent-foreground'
     },
     {
       id: 'samarkand-second-day',
-      title: 'Самарканд — второй день: тайны и ремёсла',
-      route: 'Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '4–5 часов',
-      startTime: 'В любое удобное время',
-      description: 'Экскурсия для тех, кто хочет узнать Самарканд глубже. Посещение ремесленных мастерских, древнего городища и обсерватории.',
-      program: [
-        'Фабрика шёлковых ковров',
-        'Деревня ремесленников Конигил',
-        'Обед в местной чайхане (национальные блюда)',
-        'Городище Афросиаб и музей',
-        'Могила святого Даниила',
-        'Обсерватория Мирзо Улугбека'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Подъезд к вашему адресу, возврат после экскурсии',
-      price: 'от $150 за 1–2 чел.'
+      title: language === 'en' ? 'Samarkand — Day 2: Secrets & Crafts' : 'Самарканд — второй день: тайны и ремёсла',
+      route: language === 'en' ? 'Samarkand' : 'Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Any convenient time' : 'В любое удобное время',
+      description: language === 'en'
+        ? 'A tour for those who want to discover Samarkand more deeply. Visit craft workshops, an ancient settlement, and an observatory.'
+        : 'Экскурсия для тех, кто хочет узнать Самарканд глубже. Посещение ремесленных мастерских, древнего городища и обсерватории.',
+      program: language === 'en'
+        ? ['Silk carpet factory', 'Konigil craftsmen village', 'Lunch at a local teahouse', 'Afrasiab settlement & museum', 'Saint Daniel tomb', 'Ulugbek Observatory']
+        : ['Фабрика шёлковых ковров', 'Деревня ремесленников Конигил', 'Обед в местной чайхане (национальные блюда)', 'Городище Афросиаб и музей', 'Могила святого Даниила', 'Обсерватория Мирзо Улугбека'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Pickup at your address, drop-off after the tour' : 'Подъезд к вашему адресу, возврат после экскурсии',
+      price: language === 'en' ? 'from $150 for 1–2 pax' : 'от $150 за 1–2 чел.'
     },
     {
       id: 'samarkand-walking',
-      title: 'Пешком по самаркандским улочкам',
-      route: 'Самарканд',
-      tourType: 'Пешая',
-      duration: '4–5 часов',
-      startTime: 'В любое время дня',
-      description: 'Пешеходная экскурсия по историческому центру Самарканда. Возможность неспешно осмотреть достопримечательности и почувствовать атмосферу города.',
-      program: [
-        'Мавзолей Гур-Эмир',
-        'Площадь Регистан',
-        'Обед в местной чайхане',
-        'Мечеть Биби-Ханым',
-        'Сиабский базар',
-        'Некрополь Шахи-Зинда'
-      ],
-      included: ['Услуги гида'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'У памятника Амиру Темуру',
-      price: 'от $120 за 1–3 чел.'
+      title: language === 'en' ? 'Walking Through the Streets of Samarkand' : 'Пешком по самаркандским улочкам',
+      route: language === 'en' ? 'Samarkand' : 'Самарканд',
+      tourType: language === 'en' ? 'Walking' : 'Пешая',
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Any time of day' : 'В любое время дня',
+      description: language === 'en'
+        ? 'A walking tour through the historic center of Samarkand. A chance to leisurely explore the sights and feel the atmosphere of the city.'
+        : 'Пешеходная экскурсия по историческому центру Самарканда. Возможность неспешно осмотреть достопримечательности и почувствовать атмосферу города.',
+      program: language === 'en'
+        ? ['Gur-Emir Mausoleum', 'Registan Square', 'Lunch at a local teahouse', 'Bibi-Khanym Mosque', 'Siyab Bazaar', 'Shah-i-Zinda Necropolis']
+        : ['Мавзолей Гур-Эмир', 'Площадь Регистан', 'Обед в местной чайхане', 'Мечеть Биби-Ханым', 'Сиабский базар', 'Некрополь Шахи-Зинда'],
+      included: language === 'en' ? ['Guide services'] : ['Услуги гида'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'At the Amir Temur monument' : 'У памятника Амиру Темуру',
+      price: language === 'en' ? 'from $120 for 1–3 pax' : 'от $120 за 1–3 чел.'
     },
     {
       id: 'samarkand-morning-evening',
-      title: 'Утренняя или вечерняя экскурсия по Самарканду',
-      route: 'Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '4–5 часов',
-      startTime: 'В любое удобное время',
-      description: 'Обзорная экскурсия по историческому центру Самарканда в утреннее или вечернее время. Удобный формат для планирования дня.',
-      program: [
-        'Мавзолей Гур-Эмир',
-        'Площадь Регистан',
-        'Обед в местной чайхане',
-        'Мечеть Биби-Ханым',
-        'Сиабский базар',
-        'Некрополь Шахи-Зинда'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Ваш адрес, возврат после экскурсии',
-      price: 'от $150 за 1–2 чел.'
+      title: language === 'en' ? 'Morning or Evening Tour of Samarkand' : 'Утренняя или вечерняя экскурсия по Самарканду',
+      route: language === 'en' ? 'Samarkand' : 'Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Any convenient time' : 'В любое удобное время',
+      description: language === 'en'
+        ? 'A sightseeing tour of the historic center of Samarkand in the morning or evening. A convenient format for planning your day.'
+        : 'Обзорная экскурсия по историческому центру Самарканда в утреннее или вечернее время. Удобный формат для планирования дня.',
+      program: language === 'en'
+        ? ['Gur-Emir Mausoleum', 'Registan Square', 'Lunch at a local teahouse', 'Bibi-Khanym Mosque', 'Siyab Bazaar', 'Shah-i-Zinda Necropolis']
+        : ['Мавзолей Гур-Эмир', 'Площадь Регистан', 'Обед в местной чайхане', 'Мечеть Биби-Ханым', 'Сиабский базар', 'Некрополь Шахи-Зинда'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Your address, drop-off after the tour' : 'Ваш адрес, возврат после экскурсии',
+      price: language === 'en' ? 'from $150 for 1–2 pax' : 'от $150 за 1–2 чел.'
     },
     {
       id: 'urgut-chor-chinor',
-      title: 'Из Самарканда в Ургут: сад Чор-Чинор и базар',
-      route: 'Самарканд — Ургут — Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '4–5 часов',
-      startTime: 'В любое время до 14:00',
-      description: 'Поездка в Ургут с посещением колоритного базара и древнего сада с тысячелетними чинарами. Возможность для медитации в уникальной атмосфере.',
-      program: [
-        'Большой базар Ургута',
-        'Главная мечеть Ургута',
-        'Сад Чор-Чинор, святой родник, маленькое медресе в дупле чинары'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Ваш адрес, возврат после экскурсии',
-      price: 'от $160 за 1–2 чел.'
+      title: language === 'en' ? 'From Samarkand to Urgut: Chor-Chinor Garden & Bazaar' : 'Из Самарканда в Ургут: сад Чор-Чинор и базар',
+      route: language === 'en' ? 'Samarkand — Urgut — Samarkand' : 'Самарканд — Ургут — Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Any time before 14:00' : 'В любое время до 14:00',
+      description: language === 'en'
+        ? 'A trip to Urgut with a visit to the colorful bazaar and an ancient garden with thousand-year-old plane trees. A unique meditative atmosphere.'
+        : 'Поездка в Ургут с посещением колоритного базара и древнего сада с тысячелетними чинарами. Возможность для медитации в уникальной атмосфере.',
+      program: language === 'en'
+        ? ['Urgut Grand Bazaar', 'Main mosque of Urgut', 'Chor-Chinor Garden, holy spring, small madrasa inside a plane tree hollow']
+        : ['Большой базар Ургута', 'Главная мечеть Ургута', 'Сад Чор-Чинор, святой родник, маленькое медресе в дупле чинары'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Your address, drop-off after the tour' : 'Ваш адрес, возврат после экскурсии',
+      price: language === 'en' ? 'from $160 for 1–2 pax' : 'от $160 за 1–2 чел.'
     },
     {
       id: 'kitab-pass',
-      title: 'Китабский перевал: горы, сады и тандыр',
-      route: 'Самарканд — Китабский перевал — Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '4–5 часов',
-      startTime: 'В любое время до 14:00',
-      description: 'Путешествие по живописным местам Узбекистана с посещением горных перевалов, фруктовых садов и дегустацией баранины из тандыра.',
-      program: [
-        'Скальные породы причудливой формы',
-        'Марсианские пейзажи',
-        'Камень-сердце',
-        'Базар на перевале',
-        'Плато дьявола',
-        'Обед в чайхане (баранина из тандыра)'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Ваш адрес',
-      price: 'от $170 за 1–2 чел.'
+      title: language === 'en' ? 'Kitab Pass: Mountains, Gardens & Tandoor' : 'Китабский перевал: горы, сады и тандыр',
+      route: language === 'en' ? 'Samarkand — Kitab Pass — Samarkand' : 'Самарканд — Китабский перевал — Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Any time before 14:00' : 'В любое время до 14:00',
+      description: language === 'en'
+        ? 'A journey through the scenic landscapes of Uzbekistan with mountain passes, orchards, and a taste of tandoor-cooked lamb.'
+        : 'Путешествие по живописным местам Узбекистана с посещением горных перевалов, фруктовых садов и дегустацией баранины из тандыра.',
+      program: language === 'en'
+        ? ['Bizarrely shaped rock formations', 'Martian landscapes', 'Heart-shaped rock', 'Pass bazaar', 'Devil\'s Plateau', 'Lunch at teahouse (tandoor lamb)']
+        : ['Скальные породы причудливой формы', 'Марсианские пейзажи', 'Камень-сердце', 'Базар на перевале', 'Плато дьявола', 'Обед в чайхане (баранина из тандыра)'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Your address' : 'Ваш адрес',
+      price: language === 'en' ? 'from $170 for 1–2 pax' : 'от $170 за 1–2 чел.'
     },
     {
       id: 'bukhara-by-train',
-      title: 'Бухара на поезде за один день',
-      route: 'Самарканд — Бухара — Самарканд',
-      tourType: 'Пешая',
-      duration: '08:31 выезд — возврат 18:00 или 19:13',
-      startTime: '08:31 — поезд «Афросиаб»',
-      description: 'Однодневная поездка в Бухару на скоростном поезде. Пешеходная экскурсия по историческому центру с осмотром главных достопримечательностей.',
-      program: [
-        'Ляби-Хауз',
-        'Комплекс Пои-Калон',
-        'Обед в местной чайхане',
-        'Медресе Улугбека и Абдулазизхана',
-        'Крепость Арк',
-        'Мечеть Маггоки-Аттори'
-      ],
-      included: ['Услуги гида', 'Встреча на вокзале Бухары', 'Билеты на поезда'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Вокзал Бухары (гид встречает с табличкой)',
-      price: 'от $150 за 1 чел.',
-      badge: 'На поезде',
+      title: language === 'en' ? 'Bukhara by Train in One Day' : 'Бухара на поезде за один день',
+      route: language === 'en' ? 'Samarkand — Bukhara — Samarkand' : 'Самарканд — Бухара — Самарканд',
+      tourType: language === 'en' ? 'Walking' : 'Пешая',
+      duration: language === 'en' ? '08:31 departure — return 18:00 or 19:13' : '08:31 выезд — возврат 18:00 или 19:13',
+      startTime: language === 'en' ? '08:31 — Afrosiyab train' : '08:31 — поезд «Афросияб»',
+      description: language === 'en'
+        ? 'A day trip to Bukhara on the high-speed train. A walking tour of the historic center with the main sights.'
+        : 'Однодневная поездка в Бухару на скоростном поезде. Пешеходная экскурсия по историческому центру с осмотром главных достопримечательностей.',
+      program: language === 'en'
+        ? ['Lyabi-Hauz', 'Poi-Kalon Complex', 'Lunch at a local teahouse', 'Ulugbek & Abdulaziz Khan madrasas', 'Ark Fortress', 'Magoki-Attori Mosque']
+        : ['Ляби-Хауз', 'Комплекс Пои-Калон', 'Обед в местной чайхане', 'Медресе Улугбека и Абдулазизхана', 'Крепость Арк', 'Мечеть Маггоки-Аттори'],
+      included: language === 'en' ? ['Guide services', 'Meet at Bukhara station', 'Train tickets'] : ['Услуги гида', 'Встреча на вокзале Бухары', 'Билеты на поезда'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Bukhara station (guide meets with sign)' : 'Вокзал Бухары (гид встречает с табличкой)',
+      price: language === 'en' ? 'from $150 per person' : 'от $150 за 1 чел.',
+      badge: language === 'en' ? 'By Train' : 'На поезде',
       badgeColor: 'bg-primary text-primary-foreground'
     },
     {
       id: 'seven-lakes-tajikistan',
-      title: 'Маргузорские озёра и Фанские горы (Таджикистан)',
-      route: 'Самарканд — Пенджикент — Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '7–8 часов',
-      startTime: 'До 10:00',
-      description: 'Однодневное путешествие в Таджикистан к живописным Маргузорским озёрам в Фанских горах. Виза для многих стран не требуется (уточняйте).',
-      program: [
-        'Озеро Мижгон',
-        'Озеро Сою',
-        'Озеро Хушёр',
-        'Озеро Нофин',
-        'Озеро Хурдак',
-        'Озеро Маргузор',
-        'Озеро Хазорчашм',
-        'Пикник в горах'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Ваш адрес',
-      price: 'от $300 за 1–2 чел.'
+      title: language === 'en' ? 'Marguzor Lakes & Fann Mountains (Tajikistan)' : 'Маргузорские озёра и Фанские горы (Таджикистан)',
+      route: language === 'en' ? 'Samarkand — Penjikent — Samarkand' : 'Самарканд — Пенджикент — Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '7–8 hours' : '7–8 часов',
+      startTime: language === 'en' ? 'Before 10:00' : 'До 10:00',
+      description: language === 'en'
+        ? 'A day trip to Tajikistan to the scenic Marguzor Lakes in the Fann Mountains. No visa required for many countries (check in advance).'
+        : 'Однодневное путешествие в Таджикистан к живописным Маргузорским озёрам в Фанских горах. Виза для многих стран не требуется (уточняйте).',
+      program: language === 'en'
+        ? ['Mizhgon Lake', 'Soyu Lake', 'Khushor Lake', 'Nofin Lake', 'Khurdak Lake', 'Marguzor Lake', 'Hazorchashm Lake', 'Mountain picnic']
+        : ['Озеро Мижгон', 'Озеро Сою', 'Озеро Хушёр', 'Озеро Нофин', 'Озеро Хурдак', 'Озеро Маргузор', 'Озеро Хазорчашм', 'Пикник в горах'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals'] : ['Питание'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Your address' : 'Ваш адрес',
+      price: language === 'en' ? 'from $300 for 1–2 pax' : 'от $300 за 1–2 чел.'
     },
     {
       id: 'boysun-derbend',
-      title: 'Красные каньоны Бойсуна и Дербендские теснины',
-      route: 'Самарканд — Бойсун — Дербенд — Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '12–15 часов',
-      startTime: 'Выезд в 01:00 (ночной поезд)',
-      description: 'Путешествие к красным каньонам Бойсуна и ущелью Дербенда на поездах. Выезд ночным поездом, возврат вечером.',
-      program: [
-        'Завтрак в местной чайхане',
-        'Красные каньоны Бойсуна (Кызыл)',
-        'Обед в местной чайхане',
-        'Кишлак Сайроб с тысячелетними чинарами',
-        'Ущелье Дербенда'
-      ],
-      included: ['Услуги гида', 'Автотранспорт', 'Билеты на поезда'],
-      notIncluded: ['Питание'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Вокзал Бойсуна',
-      price: 'от $400 за 1–2 чел.',
-      badge: 'На поезде',
+      title: language === 'en' ? 'Red Canyons of Boysun & Derbend Gorge' : 'Красные каньоны Бойсуна и Дербендские теснины',
+      route: language === 'en' ? 'Samarkand — Boysun — Derbend — Samarkand' : 'Самарканд — Бойсун — Дербенд — Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '12–15 hours' : '12–15 часов',
+      startTime: language === 'en' ? 'Departure at 01:00 (night train)' : 'Выезд в 01:00 (ночной поезд)',
+      description: language === 'en'
+        ? 'A journey to the red canyons of Boysun and the Derbend gorge by train. Depart on a night train, return in the evening.'
+        : 'Путешествие к красным каньонам Бойсуна и ущелью Дербенда на поездах. Выезд ночным поездом, возврат вечером.',
+      program: language === 'en'
+        ? ['Breakfast at a local teahouse', 'Boysun red canyons (Kyzyl)', 'Lunch at a local teahouse', 'Sayrob village with ancient plane trees', 'Derbend Gorge']
+        : ['Завтрак в местной чайхане', 'Красные каньоны Бойсуна (Кызыл)', 'Обед в местной чайхане', 'Кишлак Сайроб с тысячелетними чинарами', 'Ущелье Дербенда'],
+      included: language === 'en' ? ['Guide services', 'Transportation', 'Train tickets'] : ['Услуги гида', 'Автотранспорт', 'Билеты на поезда'],
+      notIncluded: language === 'en' ? ['Meals'] : ['Питание'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Boysun Station' : 'Вокзал Бойсуна',
+      price: language === 'en' ? 'from $400 for 1–2 pax' : 'от $400 за 1–2 чел.',
+      badge: language === 'en' ? 'By Train' : 'На поезде',
       badgeColor: 'bg-primary text-primary-foreground'
     },
     {
       id: 'tashkent-by-train',
-      title: 'Ташкент на поезде за один день',
-      route: 'Самарканд — Ташкент — Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '10 часов',
-      startTime: 'Утро',
-      description: 'Однодневная поездка в столицу Узбекистана на скоростном поезде. Обзорная экскурсия по главным достопримечательностям Ташкента.',
-      program: [
-        'Комплекс Хаст-Имам',
-        'Базар Чорсу',
-        'Ташкент-Сити',
-        'Станции метро Ташкента'
-      ],
-      included: ['Услуги гида', 'Автотранспорт', 'Билеты на поезда'],
-      notIncluded: ['Питание'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Вокзал Ташкента',
-      price: 'от $150 за 1 чел.',
-      badge: 'На поезде',
+      title: language === 'en' ? 'Tashkent by Train in One Day' : 'Ташкент на поезде за один день',
+      route: language === 'en' ? 'Samarkand — Tashkent — Samarkand' : 'Самарканд — Ташкент — Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '10 hours' : '10 часов',
+      startTime: language === 'en' ? 'Morning' : 'Утро',
+      description: language === 'en'
+        ? 'A day trip to the capital of Uzbekistan on the high-speed train. A sightseeing tour of the main attractions of Tashkent.'
+        : 'Однодневная поездка в столицу Узбекистана на скоростном поезде. Обзорная экскурсия по главным достопримечательностям Ташкента.',
+      program: language === 'en'
+        ? ['Khast Imam Complex', 'Chorsu Bazaar', 'Tashkent City', 'Tashkent Metro stations']
+        : ['Комплекс Хаст-Имам', 'Базар Чорсу', 'Ташкент-Сити', 'Станции метро Ташкента'],
+      included: language === 'en' ? ['Guide services', 'Transportation', 'Train tickets'] : ['Услуги гида', 'Автотранспорт', 'Билеты на поезда'],
+      notIncluded: language === 'en' ? ['Meals'] : ['Питание'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Tashkent Station' : 'Вокзал Ташкента',
+      price: language === 'en' ? 'from $150 per person' : 'от $150 за 1 чел.',
+      badge: language === 'en' ? 'By Train' : 'На поезде',
       badgeColor: 'bg-primary text-primary-foreground'
     },
     {
       id: 'iskanderkul',
-      title: 'Озеро Искандеркуль (Таджикистан)',
-      route: 'Самарканд — Пенджикент — Самарканд',
-      tourType: 'Авто + пешая',
-      duration: 'Целый день',
-      startTime: 'Утро',
-      description: 'Путешествие к загадочному горному озеру Искандеркуль в Таджикистане. Виза для многих стран не требуется (уточняйте).',
-      program: [
-        'Фанские горы',
-        'Горные кишлаки',
-        'Водопад',
-        'Змеиное озеро',
-        'Озеро Искандеркуль'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Ваш адрес',
-      price: 'от $350 за 1–2 чел.'
+      title: language === 'en' ? 'Iskanderkul Lake (Tajikistan)' : 'Озеро Искандеркуль (Таджикистан)',
+      route: language === 'en' ? 'Samarkand — Penjikent — Samarkand' : 'Самарканд — Пенджикент — Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? 'Full day' : 'Целый день',
+      startTime: language === 'en' ? 'Morning' : 'Утро',
+      description: language === 'en'
+        ? 'A journey to the mysterious mountain lake Iskanderkul in Tajikistan. No visa required for many countries (check in advance).'
+        : 'Путешествие к загадочному горному озеру Искандеркуль в Таджикистане. Виза для многих стран не требуется (уточняйте).',
+      program: language === 'en'
+        ? ['Fann Mountains', 'Mountain villages', 'Waterfall', 'Snake Lake', 'Iskanderkul Lake']
+        : ['Фанские горы', 'Горные кишлаки', 'Водопад', 'Змеиное озеро', 'Озеро Искандеркуль'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals'] : ['Питание'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Your address' : 'Ваш адрес',
+      price: language === 'en' ? 'from $350 for 1–2 pax' : 'от $350 за 1–2 чел.'
     },
     {
       id: 'hazrat-davud',
-      title: 'Пещера святого Хазрата Дауда',
-      route: 'Самарканд — Аксай — Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '4–5 часов',
-      startTime: 'До 10:00',
-      description: 'Паломническое путешествие к священной пещере Давида в горах близ Самарканда.',
-      program: [
-        'Село Аксай',
-        'Место борьбы Голиафа с Давидом',
-        'Священная пещера Давида'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Ваш адрес',
-      price: 'от $160 за 1–2 чел.'
+      title: language === 'en' ? 'Cave of Saint Hazrat Davud' : 'Пещера святого Хазрата Дауда',
+      route: language === 'en' ? 'Samarkand — Aksay — Samarkand' : 'Самарканд — Аксай — Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Before 10:00' : 'До 10:00',
+      description: language === 'en'
+        ? 'A pilgrimage journey to the sacred cave of David in the mountains near Samarkand.'
+        : 'Паломническое путешествие к священной пещере Давида в горах близ Самарканда.',
+      program: language === 'en'
+        ? ['Aksay village', 'Site of Goliath vs David battle', 'Sacred cave of David']
+        : ['Село Аксай', 'Место борьбы Голиафа с Давидом', 'Священная пещера Давида'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals'] : ['Питание'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Your address' : 'Ваш адрес',
+      price: language === 'en' ? 'from $160 for 1–2 pax' : 'от $160 за 1–2 чел.'
     },
     {
       id: 'shakhrisabz-day',
-      title: 'Шахрисабз за один день',
-      route: 'Самарканд — Шахрисабз — Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '6–7 часов',
-      startTime: 'До 10:00',
-      description: 'Поездка на родину Амира Темура через живописный Китабский перевал. Осмотр исторических памятников и обед с мясом из тандыра.',
-      program: [
-        'Горный Китабский перевал',
-        'Место съёмок фильма «Чингачгук»',
-        'Дворец Ак-Сарай',
-        'Комплекс Дору-т-Тиловат',
-        'Комплекс Дору-с-Саодат',
-        'Обед в горной чайхане (тандыр-гушт)'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Ваш адрес',
-      price: 'от $180 за 1–2 чел.'
+      title: language === 'en' ? 'Shakhrisabz in One Day' : 'Шахрисабз за один день',
+      route: language === 'en' ? 'Samarkand — Shakhrisabz — Samarkand' : 'Самарканд — Шахрисабз — Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '6–7 hours' : '6–7 часов',
+      startTime: language === 'en' ? 'Before 10:00' : 'До 10:00',
+      description: language === 'en'
+        ? 'A trip to the birthplace of Amir Temur through the scenic Kitab Pass. Explore historical monuments and enjoy lunch with tandoor meat.'
+        : 'Поездка на родину Амира Темура через живописный Китабский перевал. Осмотр исторических памятников и обед с мясом из тандыра.',
+      program: language === 'en'
+        ? ['Kitab mountain pass', 'Filming location of "Chingachgook"', 'Ak-Saray Palace', 'Doru-t-Tilavat complex', 'Doru-s-Saodat complex', 'Lunch at mountain teahouse (tandoor meat)']
+        : ['Горный Китабский перевал', 'Место съёмок фильма «Чингачгук»', 'Дворец Ак-Сарай', 'Комплекс Дору-т-Тиловат', 'Комплекс Дору-с-Саодат', 'Обед в горной чайхане (тандыр-гушт)'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals'] : ['Питание'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Your address' : 'Ваш адрес',
+      price: language === 'en' ? 'from $180 for 1–2 pax' : 'от $180 за 1–2 чел.'
     },
     {
       id: 'zaamin-reserve',
-      title: 'Зааминский заповедник — «узбекская Швейцария»',
-      route: 'Самарканд — Джизак — Заамин — Самарканд',
-      tourType: 'Авто + пешая',
-      duration: '7–8 часов',
-      startTime: 'До 09:00',
-      description: 'Путешествие в Зааминский национальный парк с горными пейзажами, каньонами и современной инфраструктурой.',
-      program: [
-        'Зааминское водохранилище',
-        'Тысячелетняя арча',
-        'Каньон Чортанга',
-        'Шербулок',
-        'Стеклянный мост',
-        'Фуникулёры'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Ваш адрес',
-      price: 'от $300 за 1–2 чел.'
+      title: language === 'en' ? 'Zaamin Reserve — "Uzbek Switzerland"' : 'Зааминский заповедник — «узбекская Швейцария»',
+      route: language === 'en' ? 'Samarkand — Jizzakh — Zaamin — Samarkand' : 'Самарканд — Джизак — Заамин — Самарканд',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '7–8 hours' : '7–8 часов',
+      startTime: language === 'en' ? 'Before 09:00' : 'До 09:00',
+      description: language === 'en'
+        ? 'A trip to Zaamin National Park with mountain scenery, canyons, and modern infrastructure.'
+        : 'Путешествие в Зааминский национальный парк с горными пейзажами, каньонами и современной инфраструктурой.',
+      program: language === 'en'
+        ? ['Zaamin Reservoir', 'Thousand-year-old juniper', 'Chortanga Canyon', 'Sherbulok', 'Glass bridge', 'Cable cars']
+        : ['Зааминское водохранилище', 'Тысячелетняя арча', 'Каньон Чортанга', 'Шербулок', 'Стеклянный мост', 'Фуникулёры'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals'] : ['Питание'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Your address' : 'Ваш адрес',
+      price: language === 'en' ? 'from $300 for 1–2 pax' : 'от $300 за 1–2 чел.'
     },
     {
       id: 'aydarkul-yurts',
-      title: 'Пустыня Кызылкум и озеро Айдаркуль с ночёвкой',
-      route: 'Самарканд — Нурата — Айдаркуль — Самарканд (или Бухара)',
-      tourType: 'Авто + пешая',
-      duration: '48 часов (2 дня)',
-      startTime: 'В любое время',
-      description: 'Двухдневное путешествие в пустыню с ночёвкой в юртовом лагере. Катание на верблюдах, закат в пустыне и посещение озера Айдаркуль.',
-      program: [
-        'Городок Нурата',
-        'Руины крепости Александра Македонского',
-        'Обед в местной чайхане',
-        'Катание на верблюдах в пустыне',
-        'Встреча заката в пустыне',
-        'Фольклорный концерт',
-        'Костёр и дискотека',
-        'Озеро Айдаркуль'
-      ],
-      included: ['Услуги гида', 'Автотранспорт', 'Проживание в юртах (1 ночь)', 'Завтрак и ужин'],
-      notIncluded: ['Личные расходы', 'Катание на верблюдах'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Ваш адрес',
-      price: 'от $500 за 1–2 чел.',
-      badge: 'С ночёвкой',
+      title: language === 'en' ? 'Kyzylkum Desert & Aydarkul Lake with Overnight Stay' : 'Пустыня Кызылкум и озеро Айдаркуль с ночёвкой',
+      route: language === 'en' ? 'Samarkand — Nurata — Aydarkul — Samarkand (or Bukhara)' : 'Самарканд — Нурата — Айдаркуль — Самарканд (или Бухара)',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
+      duration: language === 'en' ? '48 hours (2 days)' : '48 часов (2 дня)',
+      startTime: language === 'en' ? 'Any time' : 'В любое время',
+      description: language === 'en'
+        ? 'A two-day desert trip with an overnight stay in a yurt camp. Camel riding, desert sunset, and a visit to Aydarkul Lake.'
+        : 'Двухдневное путешествие в пустыню с ночёвкой в юртовом лагере. Катание на верблюдах, закат в пустыне и посещение озера Айдаркуль.',
+      program: language === 'en'
+        ? ['Nurata town', 'Ruins of Alexander the Great\'s fortress', 'Lunch at a local teahouse', 'Camel riding in the desert', 'Desert sunset', 'Folklore concert', 'Campfire and dancing', 'Aydarkul Lake']
+        : ['Городок Нурата', 'Руины крепости Александра Македонского', 'Обед в местной чайхане', 'Катание на верблюдах в пустыне', 'Встреча заката в пустыне', 'Фольклорный концерт', 'Костёр и дискотека', 'Озеро Айдаркуль'],
+      included: language === 'en' ? ['Guide services', 'Transportation', 'Yurt accommodation (1 night)', 'Breakfast and dinner'] : ['Услуги гида', 'Автотранспорт', 'Проживание в юртах (1 ночь)', 'Завтрак и ужин'],
+      notIncluded: language === 'en' ? ['Personal expenses', 'Camel riding'] : ['Личные расходы', 'Катание на верблюдах'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Your address' : 'Ваш адрес',
+      price: language === 'en' ? 'from $500 for 1–2 pax' : 'от $500 за 1–2 чел.',
+      badge: language === 'en' ? 'Overnight' : 'С ночёвкой',
       badgeColor: 'bg-accent text-accent-foreground'
     }
   ];
 
   const getTourTypeIcon = (tourType: string) => {
-    if (tourType.includes('Пешая') && !tourType.includes('Авто')) {
+    if ((tourType.includes('Walking') || tourType.includes('Пешая')) && !tourType.includes('Car') && !tourType.includes('Авто')) {
       return <Footprints className="w-4 h-4 text-accent" />;
+    }
+    if (tourType.includes('Train') || tourType.includes('поезд')) {
+      return <Train className="w-4 h-4 text-accent" />;
     }
     return <Car className="w-4 h-4 text-accent" />;
   };
@@ -404,8 +368,10 @@ const Samarkand: React.FC = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Туры по Самарканду — Частные экскурсии | JamTrips</title>
-        <meta name="description" content="Частные экскурсии по Самарканду и окрестностям. Площадь Регистан, Шахи-Зинда, Фанские горы, Шахрисабз и многое другое. Индивидуальные туры с гидом." />
+        <title>{language === 'en' ? 'Samarkand Tours — Private Guided Tours | JamTrips' : 'Туры по Самарканду — Частные экскурсии | JamTrips'}</title>
+        <meta name="description" content={language === 'en'
+          ? 'Private guided tours in Samarkand. Registan Square, Shah-i-Zinda, Fann Mountains, Shakhrisabz and more. Individual tours with a guide.'
+          : 'Частные экскурсии по Самарканду и окрестностям. Площадь Регистан, Шахи-Зинда, Фанские горы, Шахрисабз и многое другое. Индивидуальные туры с гидом.'} />
       </Helmet>
 
       {/* Hero Section */}
@@ -413,7 +379,7 @@ const Samarkand: React.FC = () => {
         <div className="absolute inset-0">
           <img
             src={heroRegistanImage}
-            alt="Площадь Регистан в Самарканде"
+            alt={language === 'en' ? 'Registan Square in Samarkand' : 'Площадь Регистан в Самарканде'}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-hero" />
@@ -422,13 +388,15 @@ const Samarkand: React.FC = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <MapPin className="w-5 h-5 text-accent" />
-            <span className="text-primary-foreground/80 font-medium">Узбекистан</span>
+            <span className="text-primary-foreground/80 font-medium">
+              {language === 'en' ? 'Uzbekistan' : 'Узбекистан'}
+            </span>
           </div>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 animate-fade-up">
-            Туры по Самарканду
+            {language === 'en' ? 'Samarkand Tours' : 'Туры по Самарканду'}
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            Откройте вечную красоту Шёлкового пути
+            {language === 'en' ? 'Discover the timeless beauty of the Silk Road' : 'Откройте вечную красоту Шёлкового пути'}
           </p>
         </div>
       </section>
@@ -438,10 +406,14 @@ const Samarkand: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-lg md:text-xl text-foreground leading-relaxed mb-6">
-              Самарканд — один из древнейших городов Центральной Азии и жемчужина Шёлкового пути. От величественной площади Регистан до священного комплекса Шахи-Зинда город предлагает сочетание истории, архитектуры и атмосферы.
+              {language === 'en'
+                ? 'Samarkand is one of the oldest cities in Central Asia and a pearl of the Silk Road. From the magnificent Registan Square to the sacred Shah-i-Zinda complex, the city offers a blend of history, architecture, and atmosphere.'
+                : 'Самарканд — один из древнейших городов Центральной Азии и жемчужина Шёлкового пути. От величественной площади Регистан до священного комплекса Шахи-Зинда город предлагает сочетание истории, архитектуры и атмосферы.'}
             </p>
             <p className="text-muted-foreground">
-              Все экскурсии индивидуальные, проводятся на любом языке. Мы подъедем к вашему адресу и вернём после экскурсии.
+              {language === 'en'
+                ? 'All tours are private and conducted in any language. We will pick you up at your address and drop you off after the tour.'
+                : 'Все экскурсии индивидуальные, проводятся на любом языке. Мы подъедем к вашему адресу и вернём после экскурсии.'}
             </p>
           </div>
         </div>
@@ -452,10 +424,10 @@ const Samarkand: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Экскурсии из Самарканда
+              {language === 'en' ? 'Excursions from Samarkand' : 'Экскурсии из Самарканда'}
             </h2>
             <p className="text-muted-foreground">
-              {tours.length} экскурсий на любой вкус
+              {language === 'en' ? `${tours.length} tours for every taste` : `${tours.length} экскурсий на любой вкус`}
             </p>
           </div>
 
@@ -525,7 +497,7 @@ const Samarkand: React.FC = () => {
                         <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center">
                           <Check className="w-3 h-3 text-accent" />
                         </div>
-                        Программа
+                        {language === 'en' ? 'Program' : 'Программа'}
                       </h4>
                       <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {tour.program.map((item, i) => (
@@ -547,7 +519,7 @@ const Samarkand: React.FC = () => {
                           <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center">
                             <Check className="w-3 h-3 text-accent" />
                           </div>
-                          Включено
+                          {language === 'en' ? "What's Included" : 'Включено'}
                         </h4>
                         <ul className="space-y-2">
                           {tour.included.map((item, i) => (
@@ -565,7 +537,7 @@ const Samarkand: React.FC = () => {
                           <div className="w-6 h-6 bg-destructive/20 rounded-full flex items-center justify-center">
                             <XIcon className="w-3 h-3 text-destructive" />
                           </div>
-                          Не включено
+                          {language === 'en' ? 'Not Included' : 'Не включено'}
                         </h4>
                         <ul className="space-y-2">
                           {tour.notIncluded.map((item, i) => (
@@ -583,19 +555,21 @@ const Samarkand: React.FC = () => {
                           <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">
                             <MapPin className="w-3 h-3 text-primary" />
                           </div>
-                          Место встречи
+                          {language === 'en' ? 'Meeting Point' : 'Место встречи'}
                         </h4>
                         <p className="text-sm text-muted-foreground mb-2">{tour.meetingPoint}</p>
                         <div className="flex items-center gap-2 text-sm">
                           <Clock className="w-3 h-3 text-primary" />
-                          <span className="text-muted-foreground">Старт: {tour.startTime}</span>
+                          <span className="text-muted-foreground">{language === 'en' ? 'Start:' : 'Старт:'} {tour.startTime}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Contact Buttons */}
                     <div className="pt-4 border-t border-border">
-                      <p className="text-sm text-muted-foreground text-center mb-3">Забронировать:</p>
+                      <p className="text-sm text-muted-foreground text-center mb-3">
+                        {language === 'en' ? 'Book this tour:' : 'Забронировать:'}
+                      </p>
                       <ContactButtons variant="horizontal" />
                     </div>
                   </div>
@@ -610,10 +584,12 @@ const Samarkand: React.FC = () => {
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
-            Готовы исследовать Самарканд?
+            {language === 'en' ? 'Ready to explore Samarkand?' : 'Готовы исследовать Самарканд?'}
           </h2>
           <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Свяжитесь с нами, чтобы забронировать экскурсию или получить консультацию по выбору маршрута.
+            {language === 'en'
+              ? 'Contact us to book a tour or get advice on choosing a route.'
+              : 'Свяжитесь с нами, чтобы забронировать экскурсию или получить консультацию по выбору маршрута.'}
           </p>
           <ContactButtons variant="horizontal" />
         </div>

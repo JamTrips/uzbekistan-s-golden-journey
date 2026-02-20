@@ -43,97 +43,87 @@ const Bukhara: React.FC = () => {
   const tours: Tour[] = [
     {
       id: 'bukhara-first-introduction',
-      title: 'Бухара — первое знакомство',
-      route: 'Бухара',
-      tourType: 'Пешая',
+      title: language === 'en' ? 'Bukhara — First Introduction' : 'Бухара — первое знакомство',
+      route: language === 'en' ? 'Bukhara' : 'Бухара',
+      tourType: language === 'en' ? 'Walking' : 'Пешая',
       tourTypeIcon: 'walking',
-      duration: '4–5 часов',
-      startTime: 'В любое удобное время',
-      description: 'Пешая обзорная экскурсия по главным достопримечательностям Бухары. Знакомство с историческими ансамблями, торговыми куполами и крепостью за один день.',
-      program: [
-        'Ансамбль Лаби-Хауз',
-        'Торговые купола',
-        'Обед в местной чайхане',
-        'Комплекс Кош-Медресе',
-        'Пои-Калон',
-        'Крепость Арк'
-      ],
-      included: ['Услуги гида'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Место встречи по договорённости',
-      price: 'от $120 за 1–3 чел.'
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Any convenient time' : 'В любое удобное время',
+      description: language === 'en'
+        ? 'A walking overview tour of the main attractions of Bukhara. Get acquainted with historic ensembles, trading domes, and the fortress in one day.'
+        : 'Пешая обзорная экскурсия по главным достопримечательностям Бухары. Знакомство с историческими ансамблями, торговыми куполами и крепостью за один день.',
+      program: language === 'en'
+        ? ['Lyabi-Hauz Ensemble', 'Trading domes', 'Lunch at a local teahouse', 'Kosh-Madrasa Complex', 'Poi-Kalon', 'Ark Fortress']
+        : ['Ансамбль Лаби-Хауз', 'Торговые купола', 'Обед в местной чайхане', 'Комплекс Кош-Медресе', 'Пои-Калон', 'Крепость Арк'],
+      included: language === 'en' ? ['Guide services'] : ['Услуги гида'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Meeting point by arrangement' : 'Место встречи по договорённости',
+      price: language === 'en' ? 'from $120 for 1–3 pax' : 'от $120 за 1–3 чел.'
     },
     {
       id: 'bukhara-hidden-treasures',
-      title: 'Бухара — второй день: скрытые сокровища города',
-      route: 'Бухара',
-      tourType: 'Авто + пешая',
+      title: language === 'en' ? 'Bukhara — Day 2: Hidden Treasures of the City' : 'Бухара — второй день: скрытые сокровища города',
+      route: language === 'en' ? 'Bukhara' : 'Бухара',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
       tourTypeIcon: 'car',
-      duration: '4–5 часов',
-      startTime: 'В любое удобное время',
-      description: 'Экскурсия по загородным достопримечательностям Бухары. Посещение летнего дворца эмира, мемориального комплекса и медресе Чор-Минор.',
-      program: [
-        'Дворец Ситораи Мохи-Хоса',
-        'Мемориальный комплекс Бахауддина Накшбанди',
-        'Медресе Чор-Минор'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Подъезд к вашему адресу, после экскурсии доставка обратно',
-      price: 'от $160 за 1–2 чел.'
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Any convenient time' : 'В любое удобное время',
+      description: language === 'en'
+        ? 'A tour of the outskirts of Bukhara. Visit the emir\'s summer palace, a memorial complex, and the Chor-Minor madrasa.'
+        : 'Экскурсия по загородным достопримечательностям Бухары. Посещение летнего дворца эмира, мемориального комплекса и медресе Чор-Минор.',
+      program: language === 'en'
+        ? ['Sitorai Mokhi-Khosa Palace', 'Bakhautdin Naqshbandi Memorial Complex', 'Chor-Minor Madrasa']
+        : ['Дворец Ситораи Мохи-Хоса', 'Мемориальный комплекс Бахауддина Накшбанди', 'Медресе Чор-Минор'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Pickup at your address, drop-off after the tour' : 'Подъезд к вашему адресу, после экскурсии доставка обратно',
+      price: language === 'en' ? 'from $160 for 1–2 pax' : 'от $160 за 1–2 чел.'
     },
     {
       id: 'bukhara-full-day',
-      title: 'Всё главное о Бухаре за один день: город и пригороды',
-      route: 'Бухара',
-      tourType: 'Авто + пешая',
+      title: language === 'en' ? 'All the Best of Bukhara in One Day: City & Outskirts' : 'Всё главное о Бухаре за один день: город и пригороды',
+      route: language === 'en' ? 'Bukhara' : 'Бухара',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
       tourTypeIcon: 'car',
-      duration: '6–7 часов',
-      startTime: 'Утром до 12:00',
-      description: 'Полная экскурсия по Бухаре за один день. Обзор исторического центра города и посещение загородных достопримечательностей.',
-      program: [
-        'Комплекс Лаби-Хауз',
-        'Ансамбль Пои-Калон',
-        'Крепость Арк',
-        'Обед в местной чайхане',
-        'Мавзолей Саманидов',
-        'Ситораи Мохи-Хоса',
-        'Чор-Бакр'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Подъезд к вашему адресу, после экскурсии доставка обратно',
-      price: '$240 за 1–2 чел.'
+      duration: language === 'en' ? '6–7 hours' : '6–7 часов',
+      startTime: language === 'en' ? 'Morning before 12:00' : 'Утром до 12:00',
+      description: language === 'en'
+        ? 'A complete tour of Bukhara in one day. Overview of the historic city center and a visit to suburban attractions.'
+        : 'Полная экскурсия по Бухаре за один день. Обзор исторического центра города и посещение загородных достопримечательностей.',
+      program: language === 'en'
+        ? ['Lyabi-Hauz Complex', 'Poi-Kalon Ensemble', 'Ark Fortress', 'Lunch at a local teahouse', 'Samanid Mausoleum', 'Sitorai Mokhi-Khosa', 'Chor-Bakr']
+        : ['Комплекс Лаби-Хауз', 'Ансамбль Пои-Калон', 'Крепость Арк', 'Обед в местной чайхане', 'Мавзолей Саманидов', 'Ситораи Мохи-Хоса', 'Чор-Бакр'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Pickup at your address, drop-off after the tour' : 'Подъезд к вашему адресу, после экскурсии доставка обратно',
+      price: language === 'en' ? '$240 for 1–2 pax' : '$240 за 1–2 чел.'
     },
     {
       id: 'bukhara-morning-evening-walk',
-      title: 'Вечерняя или утренняя прогулка по Бухаре',
-      route: 'Бухара',
-      tourType: 'Пешая',
+      title: language === 'en' ? 'Evening or Morning Walk in Bukhara' : 'Вечерняя или утренняя прогулка по Бухаре',
+      route: language === 'en' ? 'Bukhara' : 'Бухара',
+      tourType: language === 'en' ? 'Walking' : 'Пешая',
       tourTypeIcon: 'walking',
-      duration: '4–5 часов',
-      startTime: 'Утром или вечером',
-      description: 'Пешая прогулка по историческому центру Бухары с профессиональным гидом. Осмотр главных достопримечательностей в утреннее или вечернее время.',
-      program: [
-        'Ансамбль Лаби-Хауз',
-        'Торговые купола',
-        'Обед в местной чайхане',
-        'Комплекс Кош-Медресе',
-        'Пои-Калон',
-        'Крепость Арк'
-      ],
-      included: ['Услуги гида'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Место встречи по договорённости',
-      price: 'от $120 за 1–3 чел.'
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Morning or evening' : 'Утром или вечером',
+      description: language === 'en'
+        ? 'A walking tour of the historic center of Bukhara with a professional guide. See the main attractions in the morning or evening.'
+        : 'Пешая прогулка по историческому центру Бухары с профессиональным гидом. Осмотр главных достопримечательностей в утреннее или вечернее время.',
+      program: language === 'en'
+        ? ['Lyabi-Hauz Ensemble', 'Trading domes', 'Lunch at a local teahouse', 'Kosh-Madrasa Complex', 'Poi-Kalon', 'Ark Fortress']
+        : ['Ансамбль Лаби-Хауз', 'Торговые купола', 'Обед в местной чайхане', 'Комплекс Кош-Медресе', 'Пои-Калон', 'Крепость Арк'],
+      included: language === 'en' ? ['Guide services'] : ['Услуги гида'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Meeting point by arrangement' : 'Место встречи по договорённости',
+      price: language === 'en' ? 'from $120 for 1–3 pax' : 'от $120 за 1–3 чел.'
     }
   ];
 
@@ -244,29 +234,29 @@ const Bukhara: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <Navigation className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">Маршрут</p>
+                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Route' : 'Маршрут'}</p>
                         <p className="text-sm font-medium">{tour.route}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Clock className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">Длительность</p>
+                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Duration' : 'Длительность'}</p>
                         <p className="text-sm font-medium">{tour.duration}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Globe className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">Языки</p>
+                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Languages' : 'Языки'}</p>
                         <p className="text-sm font-medium">{tour.languages}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">Группа</p>
-                        <p className="text-sm font-medium">Индивидуальная</p>
+                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Group' : 'Группа'}</p>
+                        <p className="text-sm font-medium">{language === 'en' ? 'Private' : 'Индивидуальная'}</p>
                       </div>
                     </div>
                   </div>
@@ -278,7 +268,7 @@ const Bukhara: React.FC = () => {
                   <div className="mb-6">
                     <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-accent" />
-                      Программа
+                      {language === 'en' ? 'Program' : 'Программа'}
                     </h4>
                     <div className="bg-muted/30 rounded-lg p-4 border border-border">
                       <ol className="space-y-2">
@@ -299,7 +289,7 @@ const Bukhara: React.FC = () => {
                     <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
                       <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                         <Check className="w-4 h-4 text-accent" />
-                        Включено
+                        {language === 'en' ? "What's Included" : 'Включено'}
                       </h4>
                       <ul className="space-y-2">
                         {tour.included.map((item, i) => (
@@ -314,7 +304,7 @@ const Bukhara: React.FC = () => {
                     <div className="bg-destructive/5 border border-destructive/20 rounded-lg p-4">
                       <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                         <XIcon className="w-4 h-4 text-destructive" />
-                        Не включено
+                        {language === 'en' ? 'Not Included' : 'Не включено'}
                       </h4>
                       <ul className="space-y-2">
                         {tour.notIncluded.map((item, i) => (
@@ -329,7 +319,7 @@ const Bukhara: React.FC = () => {
                     <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
                       <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                         <MapPin className="w-4 h-4 text-primary" />
-                        Место встречи
+                        {language === 'en' ? 'Meeting Point' : 'Место встречи'}
                       </h4>
                       <p className="text-sm text-muted-foreground">{tour.meetingPoint}</p>
                     </div>
@@ -337,7 +327,9 @@ const Bukhara: React.FC = () => {
 
                   {/* Contact Buttons */}
                   <div className="pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground text-center mb-3">Забронировать:</p>
+                    <p className="text-sm text-muted-foreground text-center mb-3">
+                      {language === 'en' ? 'Book this tour:' : 'Забронировать:'}
+                    </p>
                     <ContactButtons variant="horizontal" />
                   </div>
                 </CardContent>
