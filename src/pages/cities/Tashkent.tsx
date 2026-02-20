@@ -45,119 +45,112 @@ const Tashkent: React.FC = () => {
   const tours: Tour[] = [
     {
       id: 'tashkent-first-introduction',
-      title: 'Ташкент — первое знакомство с городом',
-      route: 'Ташкент',
-      tourType: 'Авто + пешая',
+      title: language === 'en' ? 'Tashkent — First Introduction to the City' : 'Ташкент — первое знакомство с городом',
+      route: language === 'en' ? 'Tashkent' : 'Ташкент',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
       tourTypeIcon: 'car',
-      duration: '4–5 часов',
-      startTime: 'В любое удобное время',
-      description: 'Обзорная экскурсия по основным достопримечательностям столицы Узбекистана. Знакомство с историческим центром, базарами и современной архитектурой города.',
-      program: [
-        'Площадь Хазрати Имам',
-        'Метро Ташкента',
-        'Сквер Амира Темура',
-        'Центр плова «Беш Казан»',
-        'Дворец Романовых',
-        'Главный базар «Чорсу»'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Подъезд к вашему адресу, после экскурсии доставка обратно',
-      price: 'от $160 за 1–2 чел.'
+      duration: language === 'en' ? '4–5 hours' : '4–5 часов',
+      startTime: language === 'en' ? 'Any convenient time' : 'В любое удобное время',
+      description: language === 'en'
+        ? 'A sightseeing tour of the main attractions of the capital of Uzbekistan. Explore the historic center, bazaars, and modern architecture of the city.'
+        : 'Обзорная экскурсия по основным достопримечательностям столицы Узбекистана. Знакомство с историческим центром, базарами и современной архитектурой города.',
+      program: language === 'en'
+        ? ['Khazrati Imam Square', 'Tashkent Metro', 'Amir Temur Square', 'Besh Kazan Plov Center', 'Romanov Palace', 'Chorsu Bazaar']
+        : ['Площадь Хазрати Имам', 'Метро Ташкента', 'Сквер Амира Темура', 'Центр плова «Беш Казан»', 'Дворец Романовых', 'Главный базар «Чорсу»'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Pickup at your address, drop-off after the tour' : 'Подъезд к вашему адресу, после экскурсии доставка обратно',
+      price: language === 'en' ? 'from $160 for 1–2 pax' : 'от $160 за 1–2 чел.'
     },
     {
       id: 'sun-institute-chimgan',
-      title: 'В Институт Солнца и горы Чимган',
-      route: 'Ташкент — Чимган — Ташкент',
-      tourType: 'Авто + пешая',
+      title: language === 'en' ? 'Sun Institute & Chimgan Mountains' : 'В Институт Солнца и горы Чимган',
+      route: language === 'en' ? 'Tashkent — Chimgan — Tashkent' : 'Ташкент — Чимган — Ташкент',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
       tourTypeIcon: 'car',
-      duration: '5–7 часов',
-      startTime: 'В любое удобное время',
-      description: 'Однодневное путешествие из Ташкента к горам Чимган. Посещение научного Института Солнца, живописного водохранилища и подъём на канатной дороге.',
-      program: [
-        'Институт Солнца',
-        'Чимганские горы',
-        'Водохранилище Чарвак',
-        'Канатная дорога'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Подъезд к вашему адресу, после экскурсии доставка обратно',
-      price: 'от $220 за 1–2 чел.'
+      duration: language === 'en' ? '5–7 hours' : '5–7 часов',
+      startTime: language === 'en' ? 'Any convenient time' : 'В любое удобное время',
+      description: language === 'en'
+        ? 'A day trip from Tashkent to the Chimgan mountains. Visit the scientific Sun Institute, a scenic reservoir, and take a cable car ride.'
+        : 'Однодневное путешествие из Ташкента к горам Чимган. Посещение научного Института Солнца, живописного водохранилища и подъём на канатной дороге.',
+      program: language === 'en'
+        ? ['Sun Institute', 'Chimgan Mountains', 'Charvak Reservoir', 'Cable car']
+        : ['Институт Солнца', 'Чимганские горы', 'Водохранилище Чарвак', 'Канатная дорога'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Pickup at your address, drop-off after the tour' : 'Подъезд к вашему адресу, после экскурсии доставка обратно',
+      price: language === 'en' ? 'from $220 for 1–2 pax' : 'от $220 за 1–2 чел.'
     },
     {
       id: 'tian-shan-mountains',
-      title: 'К горам Тянь-Шаня из Ташкента за один день',
-      route: 'Ташкент — Тянь-Шань — Ташкент',
-      tourType: 'Авто + пешая',
+      title: language === 'en' ? 'Tian-Shan Mountains from Tashkent in One Day' : 'К горам Тянь-Шаня из Ташкента за один день',
+      route: language === 'en' ? 'Tashkent — Tian-Shan — Tashkent' : 'Ташкент — Тянь-Шань — Ташкент',
+      tourType: language === 'en' ? 'Car + Walking' : 'Авто + пешая',
       tourTypeIcon: 'car',
-      duration: '4–6 часов',
-      startTime: 'В любое удобное время',
-      description: 'Однодневная экскурсия к живописным горам Тянь-Шаня. Посещение горнолыжного курорта, исторического посёлка и водохранилища.',
-      program: [
-        'Горнолыжный курорт Амирсай',
-        'Посёлок Бричмулла',
-        'Чарвакское водохранилище',
-        'Роща из вековых чинар',
-        'Амирсой'
-      ],
-      included: ['Услуги гида', 'Автотранспорт'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Подъезд к вашему адресу, после экскурсии доставка обратно',
-      price: 'от $180 за 1–2 чел.'
+      duration: language === 'en' ? '4–6 hours' : '4–6 часов',
+      startTime: language === 'en' ? 'Any convenient time' : 'В любое удобное время',
+      description: language === 'en'
+        ? 'A day trip to the scenic Tian-Shan mountains. Visit the ski resort, historic village, and reservoir.'
+        : 'Однодневная экскурсия к живописным горам Тянь-Шаня. Посещение горнолыжного курорта, исторического посёлка и водохранилища.',
+      program: language === 'en'
+        ? ['Amirsoy Ski Resort', 'Brichmulla Village', 'Charvak Reservoir', 'Ancient plane tree grove', 'Amirsoy']
+        : ['Горнолыжный курорт Амирсай', 'Посёлок Бричмулла', 'Чарвакское водохранилище', 'Роща из вековых чинар', 'Амирсой'],
+      included: language === 'en' ? ['Guide services', 'Transportation'] : ['Услуги гида', 'Автотранспорт'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en' ? 'Pickup at your address, drop-off after the tour' : 'Подъезд к вашему адресу, после экскурсии доставка обратно',
+      price: language === 'en' ? 'from $180 for 1–2 pax' : 'от $180 за 1–2 чел.'
     },
     {
       id: 'tashkent-samarkand-train',
-      title: 'Из Ташкента в Самарканд на скоростном поезде',
-      route: 'Ташкент — Самарканд — Ташкент',
-      tourType: 'Авто + пешая + поезд',
+      title: language === 'en' ? 'Tashkent to Samarkand by High-Speed Train' : 'Из Ташкента в Самарканд на скоростном поезде',
+      route: language === 'en' ? 'Tashkent — Samarkand — Tashkent' : 'Ташкент — Самарканд — Ташкент',
+      tourType: language === 'en' ? 'Car + Walking + Train' : 'Авто + пешая + поезд',
       tourTypeIcon: 'train',
-      duration: 'Целый день',
-      startTime: 'Утро (ориентировочно 08:00)',
-      description: 'Однодневная поездка из Ташкента в Самарканд на скоростном поезде «Афросияб». Обзорная экскурсия по главным достопримечательностям древнего города с возвращением вечером.',
-      program: [
-        'Гур Эмир',
-        'Регистан',
-        'Обед в местной чайхане',
-        'Биби Ханым',
-        'Базар',
-        'Шахи-Зинда'
-      ],
-      included: ['Услуги гида', 'Автотранспорт', 'Билеты на поезда'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Сбор на Северном вокзале Ташкента, встреча гида на вокзале Самарканда. График поездов можно подобрать по запросу.',
-      price: 'от $160 за чел.'
+      duration: language === 'en' ? 'Full day' : 'Целый день',
+      startTime: language === 'en' ? 'Morning (approx. 08:00)' : 'Утро (ориентировочно 08:00)',
+      description: language === 'en'
+        ? 'A day trip from Tashkent to Samarkand on the Afrosiyab high-speed train. Sightseeing tour of the main attractions of the ancient city with return in the evening.'
+        : 'Однодневная поездка из Ташкента в Самарканд на скоростном поезде «Афросияб». Обзорная экскурсия по главным достопримечательностям древнего города с возвращением вечером.',
+      program: language === 'en'
+        ? ['Gur-Emir Mausoleum', 'Registan Square', 'Lunch at a local teahouse', 'Bibi-Khanym Mosque', 'Bazaar', 'Shah-i-Zinda Necropolis']
+        : ['Гур Эмир', 'Регистан', 'Обед в местной чайхане', 'Биби Ханым', 'Базар', 'Шахи-Зинда'],
+      included: language === 'en' ? ['Guide services', 'Transportation', 'Train tickets'] : ['Услуги гида', 'Автотранспорт', 'Билеты на поезда'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en'
+        ? 'Meet at Tashkent North Station, guide meets you at Samarkand station. Train schedule can be arranged on request.'
+        : 'Сбор на Северном вокзале Ташкента, встреча гида на вокзале Самарканда. График поездов можно подобрать по запросу.',
+      price: language === 'en' ? 'from $160 per person' : 'от $160 за чел.'
     },
     {
       id: 'tashkent-bukhara-flight',
-      title: 'Из Ташкента в Бухару самолётом',
-      route: 'Ташкент — Бухара — Ташкент',
-      tourType: 'Авто + пешая + самолёт + поезд',
+      title: language === 'en' ? 'Tashkent to Bukhara by Plane' : 'Из Ташкента в Бухару самолётом',
+      route: language === 'en' ? 'Tashkent — Bukhara — Tashkent' : 'Ташкент — Бухара — Ташкент',
+      tourType: language === 'en' ? 'Car + Walking + Plane + Train' : 'Авто + пешая + самолёт + поезд',
       tourTypeIcon: 'plane',
-      duration: 'Целый день',
-      startTime: '07:30 (вылет)',
-      description: 'Однодневная экскурсия в Бухару с перелётом утром и возвращением на поезде вечером. Обзор основных исторических памятников древнего города.',
-      program: [
-        'Комплекс Ляби-Хауз',
-        'Мечеть Магоки-Аттори',
-        'Памятник Ходже Насреддину',
-        'Ансамбль Пои-Калон',
-        'Крепость Арк'
-      ],
-      included: ['Услуги гида', 'Автотранспорт', 'Билеты на поезда', 'Авиабилет'],
-      notIncluded: ['Питание', 'Входные билеты на памятники'],
-      languages: 'Любой язык',
-      groupType: 'Индивидуальная (только ваша группа)',
-      meetingPoint: 'Встреча гида в аэропорту Бухары. Расписание: 07:30 вылет из Ташкента, 09:00 прибытие, 15:30 поезд обратно, 19:45 прибытие в Ташкент.',
-      price: 'от $250 за чел.'
+      duration: language === 'en' ? 'Full day' : 'Целый день',
+      startTime: language === 'en' ? '07:30 (departure)' : '07:30 (вылет)',
+      description: language === 'en'
+        ? 'A day excursion to Bukhara with morning flight and return by train in the evening. Overview of the main historical monuments of the ancient city.'
+        : 'Однодневная экскурсия в Бухару с перелётом утром и возвращением на поезде вечером. Обзор основных исторических памятников древнего города.',
+      program: language === 'en'
+        ? ['Lyabi-Hauz Complex', 'Magoki-Attori Mosque', 'Khoja Nasreddin Monument', 'Poi-Kalon Ensemble', 'Ark Fortress']
+        : ['Комплекс Ляби-Хауз', 'Мечеть Магоки-Аттори', 'Памятник Ходже Насреддину', 'Ансамбль Пои-Калон', 'Крепость Арк'],
+      included: language === 'en' ? ['Guide services', 'Transportation', 'Train tickets', 'Flight ticket'] : ['Услуги гида', 'Автотранспорт', 'Билеты на поезда', 'Авиабилет'],
+      notIncluded: language === 'en' ? ['Meals', 'Entrance fees'] : ['Питание', 'Входные билеты на памятники'],
+      languages: language === 'en' ? 'Any language' : 'Любой язык',
+      groupType: language === 'en' ? 'Private (your group only)' : 'Индивидуальная (только ваша группа)',
+      meetingPoint: language === 'en'
+        ? 'Guide meets at Bukhara Airport. Schedule: 07:30 departure from Tashkent, 09:00 arrival, 15:30 train back, 19:45 arrival in Tashkent.'
+        : 'Встреча гида в аэропорту Бухары. Расписание: 07:30 вылет из Ташкента, 09:00 прибытие, 15:30 поезд обратно, 19:45 прибытие в Ташкент.',
+      price: language === 'en' ? 'from $250 per person' : 'от $250 за чел.'
     }
   ];
 
@@ -272,29 +265,29 @@ const Tashkent: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <Navigation className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">Маршрут</p>
+                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Route' : 'Маршрут'}</p>
                         <p className="text-sm font-medium">{tour.route}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Clock className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">Длительность</p>
+                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Duration' : 'Длительность'}</p>
                         <p className="text-sm font-medium">{tour.duration}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Globe className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">Языки</p>
+                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Languages' : 'Языки'}</p>
                         <p className="text-sm font-medium">{tour.languages}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">Группа</p>
-                        <p className="text-sm font-medium">Индивидуальная</p>
+                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Group' : 'Группа'}</p>
+                        <p className="text-sm font-medium">{language === 'en' ? 'Private' : 'Индивидуальная'}</p>
                       </div>
                     </div>
                   </div>
@@ -306,7 +299,7 @@ const Tashkent: React.FC = () => {
                   <div className="mb-6">
                     <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-accent" />
-                      Программа
+                      {language === 'en' ? 'Program' : 'Программа'}
                     </h4>
                     <div className="bg-muted/30 rounded-lg p-4 border border-border">
                       <ol className="space-y-2">
@@ -327,7 +320,7 @@ const Tashkent: React.FC = () => {
                     <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
                       <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                         <Check className="w-4 h-4 text-accent" />
-                        Включено
+                        {language === 'en' ? "What's Included" : 'Включено'}
                       </h4>
                       <ul className="space-y-2">
                         {tour.included.map((item, i) => (
@@ -342,7 +335,7 @@ const Tashkent: React.FC = () => {
                     <div className="bg-destructive/5 border border-destructive/20 rounded-lg p-4">
                       <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                         <XIcon className="w-4 h-4 text-destructive" />
-                        Не включено
+                        {language === 'en' ? 'Not Included' : 'Не включено'}
                       </h4>
                       <ul className="space-y-2">
                         {tour.notIncluded.map((item, i) => (
@@ -357,7 +350,7 @@ const Tashkent: React.FC = () => {
                     <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
                       <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                         <MapPin className="w-4 h-4 text-primary" />
-                        Место встречи
+                        {language === 'en' ? 'Meeting Point' : 'Место встречи'}
                       </h4>
                       <p className="text-sm text-muted-foreground">{tour.meetingPoint}</p>
                     </div>
@@ -365,7 +358,9 @@ const Tashkent: React.FC = () => {
 
                   {/* Contact Buttons */}
                   <div className="pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground text-center mb-3">Забронировать:</p>
+                    <p className="text-sm text-muted-foreground text-center mb-3">
+                      {language === 'en' ? 'Book this tour:' : 'Забронировать:'}
+                    </p>
                     <ContactButtons variant="horizontal" />
                   </div>
                 </CardContent>

@@ -232,7 +232,9 @@ const Shakhrisabz: React.FC = () => {
 
                     {/* Actions */}
                     <div className="flex flex-col gap-3 lg:min-w-[200px]">
-                      <p className="text-sm text-muted-foreground text-center">Забронировать:</p>
+                      <p className="text-sm text-muted-foreground text-center">
+                        {language === 'en' ? 'Book this tour:' : 'Забронировать:'}
+                      </p>
                       <ContactButtons variant="vertical" size="sm" />
                     </div>
                   </div>
