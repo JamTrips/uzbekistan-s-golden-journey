@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
   ];
 
   const quickLinks = [
-    { path: '/day-trips', label: t('nav.dayTrips') },
+    { path: '/destinations', label: t('nav.dayTrips') },
     { path: '/multi-day-tours', label: t('nav.multiDayTours') },
     { path: '/transfers', label: t('nav.transfers') },
     { path: '/about', label: t('nav.about') },
