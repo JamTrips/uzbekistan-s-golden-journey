@@ -11,14 +11,14 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   const navLinks = [
-    { path: '/', label: t('nav.home') },
-    { path: '/destinations', label: t('nav.destinations') },
-    { path: '/destinations', label: language === 'en' ? 'Day Trips' : 'Однодневные туры' },
-    { path: '/multi-day-tours', label: t('nav.multiDayTours') },
-    { path: '/transfers', label: t('nav.transfers') },
-    { path: '/about', label: t('nav.about') },
-    { path: '/reviews', label: t('nav.reviews') },
-    { path: '/contact', label: t('nav.contact') },
+    { path: '/', id: 'home', label: t('nav.home') },
+    { path: '/destinations', id: 'destinations', label: t('nav.destinations') },
+    { path: '/destinations', id: 'day-trips', label: language === 'en' ? 'Day Trips' : 'Однодневные туры' },
+    { path: '/multi-day-tours', id: 'multi-day-tours', label: t('nav.multiDayTours') },
+    { path: '/transfers', id: 'transfers', label: t('nav.transfers') },
+    { path: '/about', id: 'about', label: t('nav.about') },
+    { path: '/reviews', id: 'reviews', label: t('nav.reviews') },
+    { path: '/contact', id: 'contact', label: t('nav.contact') },
   ];
 
   const toggleLanguage = () => {
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
-                key={link.path}
+                key={link.id}
                 to={link.path}
                 className={`px-4 py-2 text-sm font-medium transition-colors rounded-md ${
                   location.pathname === link.path
@@ -116,7 +116,7 @@ const Header: React.FC = () => {
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
-                  key={link.path}
+                  key={link.id}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-4 py-3 text-base font-medium transition-colors rounded-md ${
