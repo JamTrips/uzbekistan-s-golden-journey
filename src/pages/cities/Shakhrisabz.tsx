@@ -189,7 +189,7 @@ const Shakhrisabz: React.FC = () => {
                       </div>
 
                       {/* Tour Meta */}
-                      <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
+                      <div className="flex flex-wrap gap-4 mb-6 text-sm md:text-base text-muted-foreground">
                         <div className="flex items-center gap-2">
                           <Clock className="w-4 h-4 text-accent" />
                           <span>{language === 'en' ? 'Duration:' : 'Длительность:'} {tour.durationDetail}</span>
@@ -212,12 +212,12 @@ const Shakhrisabz: React.FC = () => {
 
                       {/* Highlights */}
                       <div className="mb-4">
-                        <h4 className="font-semibold text-foreground mb-3">
+                        <h4 className="font-semibold text-base md:text-lg text-foreground mb-3">
                           {language === 'en' ? 'Highlights' : 'Основные места'}
                         </h4>
                         <ul className="grid sm:grid-cols-2 gap-2">
                           {tour.highlights.map((highlight, i) => (
-                            <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <li key={i} className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
                               <Check className="w-4 h-4 text-accent flex-shrink-0" />
                               {highlight}
                             </li>
@@ -225,7 +225,7 @@ const Shakhrisabz: React.FC = () => {
                         </ul>
                       </div>
 
-                      <p className="text-muted-foreground text-sm">
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         {tour.description}
                       </p>
                     </div>
@@ -269,7 +269,7 @@ const Shakhrisabz: React.FC = () => {
                   </h3>
                   <ul className="space-y-3">
                     {included.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <li key={i} className="flex items-start gap-2 text-sm md:text-base text-muted-foreground">
                         <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                         {item}
                       </li>
@@ -287,7 +287,7 @@ const Shakhrisabz: React.FC = () => {
                   </h3>
                   <ul className="space-y-3">
                     {notIncluded.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <li key={i} className="flex items-start gap-2 text-sm md:text-base text-muted-foreground">
                         <XIcon className="w-4 h-4 text-destructive/70 flex-shrink-0 mt-0.5" />
                         {item}
                       </li>
@@ -305,7 +305,7 @@ const Shakhrisabz: React.FC = () => {
                   </h3>
                   <ul className="space-y-3">
                     {whoFor.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <li key={i} className="flex items-start gap-2 text-sm md:text-base text-muted-foreground">
                         <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                         {item}
                       </li>
