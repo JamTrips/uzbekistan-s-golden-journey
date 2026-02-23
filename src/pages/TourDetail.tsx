@@ -53,17 +53,17 @@ const TourDetail = () => {
         </div>
       )}
 
-      <section className="py-12 px-4">
-        <div className="container mx-auto max-w-4xl">
-          {!tour.cover_image && <h1 className="text-3xl md:text-5xl font-serif font-bold text-primary mb-6">{title}</h1>}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-3xl">
+          {!tour.cover_image && <h1 className="text-3xl md:text-5xl font-serif font-bold text-primary mb-8">{title}</h1>}
 
-          <div className="flex flex-wrap gap-3 mb-6">
-            <Badge variant="secondary">{tour.tour_type === 'group' ? (language === 'en' ? 'Group' : 'Групповая') : (language === 'en' ? 'Private' : 'Индивидуальная')}</Badge>
-            {tour.location && <Badge variant="outline" className="gap-1"><MapPin className="h-3 w-3" />{tour.location}</Badge>}
-            {tour.duration && <Badge variant="outline" className="gap-1"><Clock className="h-3 w-3" />{tour.duration}</Badge>}
+          <div className="flex flex-wrap gap-3 mb-5">
+            <Badge variant="secondary" className="text-sm px-3 py-1">{tour.tour_type === 'group' ? (language === 'en' ? 'Group' : 'Групповая') : (language === 'en' ? 'Private' : 'Индивидуальная')}</Badge>
+            {tour.location && <Badge variant="outline" className="gap-1.5 text-sm px-3 py-1"><MapPin className="h-3.5 w-3.5" />{tour.location}</Badge>}
+            {tour.duration && <Badge variant="outline" className="gap-1.5 text-sm px-3 py-1"><Clock className="h-3.5 w-3.5" />{tour.duration}</Badge>}
           </div>
 
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-5 mb-10 p-5 rounded-lg bg-secondary/50 border border-border">
             <span className="text-3xl font-bold text-primary">{tour.price} {tour.currency}</span>
             <BookingDialog tourId={tour.id} tourName={title}>
               <Button variant="gold" size="lg">{language === 'en' ? 'Book Now' : 'Забронировать'}</Button>
@@ -71,28 +71,30 @@ const TourDetail = () => {
           </div>
 
           {desc && (
-            <div className="prose prose-lg max-w-none mb-8">
-              {desc.split('\n').map((p: string, i: number) => <p key={i}>{p}</p>)}
+            <div className="mb-10">
+              <div className="space-y-4 text-base leading-relaxed text-foreground/90">
+                {desc.split('\n').filter(Boolean).map((p: string, i: number) => <p key={i}>{p}</p>)}
+              </div>
             </div>
           )}
 
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
             {included && included.length > 0 && (
-              <div>
-                <h3 className="font-serif font-bold text-lg mb-3">{language === 'en' ? 'Included' : 'Включено'}</h3>
-                <ul className="space-y-2">
+              <div className="p-5 rounded-lg bg-accent/10 border border-accent/20">
+                <h3 className="font-serif font-bold text-lg mb-4">{language === 'en' ? 'Included' : 'Включено'}</h3>
+                <ul className="space-y-3">
                   {included.map((item: string, i: number) => (
-                    <li key={i} className="flex items-start gap-2 text-sm"><Check className="h-4 w-4 text-accent mt-0.5 shrink-0" />{item}</li>
+                    <li key={i} className="flex items-start gap-3 text-sm leading-relaxed"><Check className="h-4 w-4 text-accent mt-0.5 shrink-0" />{item}</li>
                   ))}
                 </ul>
               </div>
             )}
             {excluded && excluded.length > 0 && (
-              <div>
-                <h3 className="font-serif font-bold text-lg mb-3">{language === 'en' ? 'Not included' : 'Не включено'}</h3>
-                <ul className="space-y-2">
+              <div className="p-5 rounded-lg bg-destructive/5 border border-destructive/10">
+                <h3 className="font-serif font-bold text-lg mb-4">{language === 'en' ? 'Not included' : 'Не включено'}</h3>
+                <ul className="space-y-3">
                   {excluded.map((item: string, i: number) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground"><X className="h-4 w-4 text-destructive mt-0.5 shrink-0" />{item}</li>
+                    <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground"><X className="h-4 w-4 text-destructive mt-0.5 shrink-0" />{item}</li>
                   ))}
                 </ul>
               </div>
@@ -102,7 +104,7 @@ const TourDetail = () => {
           {/* Gallery */}
           {tour.gallery_images && tour.gallery_images.length > 0 && (
             <div>
-              <h3 className="font-serif font-bold text-lg mb-3">{language === 'en' ? 'Gallery' : 'Галерея'}</h3>
+              <h3 className="font-serif font-bold text-lg mb-4">{language === 'en' ? 'Gallery' : 'Галерея'}</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {tour.gallery_images.map((url: string, i: number) => (
                   <div key={i} className="aspect-[4/3] rounded-lg overflow-hidden">
