@@ -75,8 +75,8 @@ const ToursPage = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {tours.map(tour => (
-                <Card key={tour.id} className="overflow-hidden hover:shadow-elevated transition-shadow group">
-                  <div className="aspect-[4/3] overflow-hidden bg-muted">
+                <Card key={tour.id} className="overflow-hidden hover:shadow-elevated transition-shadow group flex flex-col">
+                  <div className="aspect-[16/10] overflow-hidden bg-muted">
                     {tour.cover_image ? (
                       <img src={tour.cover_image} alt={language === 'en' ? tour.title_en || tour.title_ru : tour.title_ru} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                     ) : (
@@ -85,29 +85,29 @@ const ToursPage = () => {
                       </div>
                     )}
                   </div>
-                  <CardContent className="p-5">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="secondary">{tour.tour_type === 'group' ? (language === 'en' ? 'Group' : 'Групповая') : (language === 'en' ? 'Private' : 'Индивидуальная')}</Badge>
+                  <CardContent className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Badge variant="secondary" className="text-xs font-medium">{tour.tour_type === 'group' ? (language === 'en' ? 'Group' : 'Групповая') : (language === 'en' ? 'Private' : 'Индивидуальная')}</Badge>
                       {tour.location && (
                         <span className="text-xs text-muted-foreground flex items-center gap-1"><MapPin className="h-3 w-3" />{tour.location}</span>
                       )}
                     </div>
                     <Link to={`/tours/${tour.id}`}>
-                      <h3 className="font-serif font-bold text-lg mb-1 hover:text-primary transition-colors">
+                      <h3 className="font-serif font-bold text-xl leading-snug mb-2 hover:text-accent transition-colors">
                         {language === 'en' ? tour.title_en || tour.title_ru : tour.title_ru}
                       </h3>
                     </Link>
-                    <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4 flex-1">
                       {language === 'en' ? tour.short_description_en || tour.short_description_ru : tour.short_description_ru}
                     </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                        {tour.duration && <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{tour.duration}</span>}
+                    <div className="flex items-center justify-between mb-4 pt-3 border-t border-border">
+                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                        {tour.duration && <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" />{tour.duration}</span>}
                       </div>
-                      <span className="font-bold text-primary">{tour.price} {tour.currency}</span>
+                      <span className="text-lg font-bold text-primary">{tour.price} {tour.currency}</span>
                     </div>
                     <BookingDialog tourId={tour.id} tourName={language === 'en' ? tour.title_en || tour.title_ru : tour.title_ru}>
-                      <Button className="w-full mt-3" variant="gold">{language === 'en' ? 'Book Now' : 'Забронировать'}</Button>
+                      <Button className="w-full" variant="gold" size="lg">{language === 'en' ? 'Book Now' : 'Забронировать'}</Button>
                     </BookingDialog>
                   </CardContent>
                 </Card>
