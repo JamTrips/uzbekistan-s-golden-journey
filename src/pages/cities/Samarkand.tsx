@@ -461,7 +461,7 @@ const Samarkand: React.FC = () => {
                     {/* Description & Meta */}
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                       <div className="flex-1">
-                        <p className="text-muted-foreground mb-4">
+                        <p className="text-base leading-relaxed text-muted-foreground mb-4">
                           {tour.description}
                         </p>
 
@@ -469,23 +469,23 @@ const Samarkand: React.FC = () => {
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
                           <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg">
                             <MapPin className="w-4 h-4 text-accent flex-shrink-0" />
-                            <span className="text-sm text-foreground truncate">{tour.route}</span>
+                            <span className="text-sm md:text-base text-foreground truncate">{tour.route}</span>
                           </div>
                           <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg">
                             {getTourTypeIcon(tour.tourType)}
-                            <span className="text-sm text-foreground">{tour.tourType}</span>
+                            <span className="text-sm md:text-base text-foreground">{tour.tourType}</span>
                           </div>
                           <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg">
                             <Clock className="w-4 h-4 text-accent flex-shrink-0" />
-                            <span className="text-sm text-foreground">{tour.duration}</span>
+                            <span className="text-sm md:text-base text-foreground">{tour.duration}</span>
                           </div>
                           <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg">
                             <Globe className="w-4 h-4 text-accent flex-shrink-0" />
-                            <span className="text-sm text-foreground">{tour.languages}</span>
+                            <span className="text-sm md:text-base text-foreground">{tour.languages}</span>
                           </div>
                           <div className="flex items-center gap-2 bg-secondary/50 px-3 py-2 rounded-lg col-span-2 md:col-span-1">
                             <Users className="w-4 h-4 text-accent flex-shrink-0" />
-                            <span className="text-sm text-foreground truncate">{tour.groupType}</span>
+                            <span className="text-sm md:text-base text-foreground truncate">{tour.groupType}</span>
                           </div>
                         </div>
                       </div>
@@ -493,7 +493,7 @@ const Samarkand: React.FC = () => {
 
                     {/* Program */}
                     <div className="bg-secondary/30 rounded-xl p-5 border border-border/50">
-                      <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                      <h4 className="font-semibold text-base md:text-lg text-foreground mb-4 flex items-center gap-2">
                         <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center">
                           <Check className="w-3 h-3 text-accent" />
                         </div>
@@ -501,11 +501,11 @@ const Samarkand: React.FC = () => {
                       </h4>
                       <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {tour.program.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-foreground bg-background px-3 py-2 rounded-lg border border-border/30">
-                            <span className="w-5 h-5 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                              <span className="text-xs font-medium text-accent">{i + 1}</span>
+                          <li key={i} className="flex items-start gap-2 text-sm md:text-base text-foreground bg-background px-3 py-2.5 rounded-lg border border-border/30">
+                            <span className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-xs md:text-sm font-medium text-accent">{i + 1}</span>
                             </span>
-                            {item}
+                            <span className="leading-relaxed">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -515,7 +515,7 @@ const Samarkand: React.FC = () => {
                     <div className="grid md:grid-cols-3 gap-4">
                       {/* Included */}
                       <div className="bg-accent/5 rounded-xl p-4 border border-accent/20">
-                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <h4 className="font-semibold text-base text-foreground mb-3 flex items-center gap-2">
                           <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center">
                             <Check className="w-3 h-3 text-accent" />
                           </div>
@@ -523,8 +523,8 @@ const Samarkand: React.FC = () => {
                         </h4>
                         <ul className="space-y-2">
                           {tour.included.map((item, i) => (
-                            <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                              <Check className="w-3 h-3 text-accent mt-1 flex-shrink-0" />
+                            <li key={i} className="text-sm md:text-base text-muted-foreground flex items-start gap-2">
+                              <Check className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
                               {item}
                             </li>
                           ))}
@@ -533,7 +533,7 @@ const Samarkand: React.FC = () => {
 
                       {/* Not Included */}
                       <div className="bg-destructive/5 rounded-xl p-4 border border-destructive/20">
-                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <h4 className="font-semibold text-base text-foreground mb-3 flex items-center gap-2">
                           <div className="w-6 h-6 bg-destructive/20 rounded-full flex items-center justify-center">
                             <XIcon className="w-3 h-3 text-destructive" />
                           </div>
@@ -541,8 +541,8 @@ const Samarkand: React.FC = () => {
                         </h4>
                         <ul className="space-y-2">
                           {tour.notIncluded.map((item, i) => (
-                            <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                              <XIcon className="w-3 h-3 text-destructive mt-1 flex-shrink-0" />
+                            <li key={i} className="text-sm md:text-base text-muted-foreground flex items-start gap-2">
+                              <XIcon className="w-4 h-4 text-destructive mt-1 flex-shrink-0" />
                               {item}
                             </li>
                           ))}
@@ -551,15 +551,15 @@ const Samarkand: React.FC = () => {
 
                       {/* Meeting Point */}
                       <div className="bg-primary/5 rounded-xl p-4 border border-primary/20">
-                        <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <h4 className="font-semibold text-base text-foreground mb-3 flex items-center gap-2">
                           <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">
                             <MapPin className="w-3 h-3 text-primary" />
                           </div>
                           {language === 'en' ? 'Meeting Point' : 'Место встречи'}
                         </h4>
-                        <p className="text-sm text-muted-foreground mb-2">{tour.meetingPoint}</p>
-                        <div className="flex items-center gap-2 text-sm">
-                          <Clock className="w-3 h-3 text-primary" />
+                        <p className="text-sm md:text-base text-muted-foreground mb-2">{tour.meetingPoint}</p>
+                        <div className="flex items-center gap-2 text-sm md:text-base">
+                          <Clock className="w-4 h-4 text-primary" />
                           <span className="text-muted-foreground">{language === 'en' ? 'Start:' : 'Старт:'} {tour.startTime}</span>
                         </div>
                       </div>

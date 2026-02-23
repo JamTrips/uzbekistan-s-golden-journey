@@ -265,50 +265,50 @@ const Tashkent: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <Navigation className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Route' : 'Маршрут'}</p>
-                        <p className="text-sm font-medium">{tour.route}</p>
+                        <p className="text-xs md:text-sm text-muted-foreground">{language === 'en' ? 'Route' : 'Маршрут'}</p>
+                        <p className="text-sm md:text-base font-medium">{tour.route}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Clock className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Duration' : 'Длительность'}</p>
-                        <p className="text-sm font-medium">{tour.duration}</p>
+                        <p className="text-xs md:text-sm text-muted-foreground">{language === 'en' ? 'Duration' : 'Длительность'}</p>
+                        <p className="text-sm md:text-base font-medium">{tour.duration}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Globe className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Languages' : 'Языки'}</p>
-                        <p className="text-sm font-medium">{tour.languages}</p>
+                        <p className="text-xs md:text-sm text-muted-foreground">{language === 'en' ? 'Languages' : 'Языки'}</p>
+                        <p className="text-sm md:text-base font-medium">{tour.languages}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="w-4 h-4 text-accent" />
                       <div>
-                        <p className="text-xs text-muted-foreground">{language === 'en' ? 'Group' : 'Группа'}</p>
-                        <p className="text-sm font-medium">{language === 'en' ? 'Private' : 'Индивидуальная'}</p>
+                        <p className="text-xs md:text-sm text-muted-foreground">{language === 'en' ? 'Group' : 'Группа'}</p>
+                        <p className="text-sm md:text-base font-medium">{language === 'en' ? 'Private' : 'Индивидуальная'}</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-muted-foreground mb-6">{tour.description}</p>
+                  <p className="text-base leading-relaxed text-muted-foreground mb-6">{tour.description}</p>
 
                   {/* Program */}
                   <div className="mb-6">
-                    <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <h4 className="font-semibold text-base md:text-lg text-foreground mb-3 flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-accent" />
                       {language === 'en' ? 'Program' : 'Программа'}
                     </h4>
                     <div className="bg-muted/30 rounded-lg p-4 border border-border">
-                      <ol className="space-y-2">
+                      <ol className="space-y-3">
                         {tour.program.map((item, i) => (
-                          <li key={i} className="flex items-start gap-3 text-sm">
-                            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 text-accent flex items-center justify-center text-xs font-bold">
+                          <li key={i} className="flex items-start gap-3 text-sm md:text-base">
+                            <span className="flex-shrink-0 w-7 h-7 rounded-full bg-accent/20 text-accent flex items-center justify-center text-xs md:text-sm font-bold">
                               {i + 1}
                             </span>
-                            <span className="text-foreground pt-0.5">{item}</span>
+                            <span className="text-foreground pt-0.5 leading-relaxed">{item}</span>
                           </li>
                         ))}
                       </ol>
@@ -318,14 +318,14 @@ const Tashkent: React.FC = () => {
                   {/* Included / Not Included / Meeting Point */}
                   <div className="grid md:grid-cols-3 gap-4 mb-6">
                     <div className="bg-accent/5 border border-accent/20 rounded-lg p-4">
-                      <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <h4 className="font-semibold text-base text-foreground mb-3 flex items-center gap-2">
                         <Check className="w-4 h-4 text-accent" />
                         {language === 'en' ? "What's Included" : 'Включено'}
                       </h4>
                       <ul className="space-y-2">
                         {tour.included.map((item, i) => (
-                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <Check className="w-3 h-3 text-accent flex-shrink-0" />
+                          <li key={i} className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
+                            <Check className="w-4 h-4 text-accent flex-shrink-0" />
                             {item}
                           </li>
                         ))}
@@ -333,14 +333,14 @@ const Tashkent: React.FC = () => {
                     </div>
 
                     <div className="bg-destructive/5 border border-destructive/20 rounded-lg p-4">
-                      <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <h4 className="font-semibold text-base text-foreground mb-3 flex items-center gap-2">
                         <XIcon className="w-4 h-4 text-destructive" />
                         {language === 'en' ? 'Not Included' : 'Не включено'}
                       </h4>
                       <ul className="space-y-2">
                         {tour.notIncluded.map((item, i) => (
-                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <XIcon className="w-3 h-3 text-destructive/70 flex-shrink-0" />
+                          <li key={i} className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
+                            <XIcon className="w-4 h-4 text-destructive/70 flex-shrink-0" />
                             {item}
                           </li>
                         ))}
@@ -348,11 +348,11 @@ const Tashkent: React.FC = () => {
                     </div>
 
                     <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
-                      <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <h4 className="font-semibold text-base text-foreground mb-3 flex items-center gap-2">
                         <MapPin className="w-4 h-4 text-primary" />
                         {language === 'en' ? 'Meeting Point' : 'Место встречи'}
                       </h4>
-                      <p className="text-sm text-muted-foreground">{tour.meetingPoint}</p>
+                      <p className="text-sm md:text-base text-muted-foreground">{tour.meetingPoint}</p>
                     </div>
                   </div>
 
