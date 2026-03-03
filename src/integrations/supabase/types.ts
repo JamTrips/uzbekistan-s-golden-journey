@@ -61,8 +61,120 @@ export type Database = {
           },
         ]
       }
+      cities: {
+        Row: {
+          card_layout: string | null
+          created_at: string | null
+          cta_description_en: string | null
+          cta_description_ru: string | null
+          cta_title_en: string | null
+          cta_title_ru: string | null
+          description_en: string | null
+          description_ru: string | null
+          hero_image_url: string | null
+          icon: string | null
+          id: string
+          is_published: boolean | null
+          name_en: string | null
+          name_ru: string
+          overview_en: string | null
+          overview_ru: string | null
+          overview_secondary_en: string | null
+          overview_secondary_ru: string | null
+          seo_description_en: string | null
+          seo_description_ru: string | null
+          seo_title_en: string | null
+          seo_title_ru: string | null
+          shared_included_en: string[] | null
+          shared_included_ru: string[] | null
+          shared_not_included_en: string[] | null
+          shared_not_included_ru: string[] | null
+          shared_who_for_en: string[] | null
+          shared_who_for_ru: string[] | null
+          slug: string
+          sort_order: number | null
+          subtitle_en: string | null
+          subtitle_ru: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          card_layout?: string | null
+          created_at?: string | null
+          cta_description_en?: string | null
+          cta_description_ru?: string | null
+          cta_title_en?: string | null
+          cta_title_ru?: string | null
+          description_en?: string | null
+          description_ru?: string | null
+          hero_image_url?: string | null
+          icon?: string | null
+          id?: string
+          is_published?: boolean | null
+          name_en?: string | null
+          name_ru: string
+          overview_en?: string | null
+          overview_ru?: string | null
+          overview_secondary_en?: string | null
+          overview_secondary_ru?: string | null
+          seo_description_en?: string | null
+          seo_description_ru?: string | null
+          seo_title_en?: string | null
+          seo_title_ru?: string | null
+          shared_included_en?: string[] | null
+          shared_included_ru?: string[] | null
+          shared_not_included_en?: string[] | null
+          shared_not_included_ru?: string[] | null
+          shared_who_for_en?: string[] | null
+          shared_who_for_ru?: string[] | null
+          slug: string
+          sort_order?: number | null
+          subtitle_en?: string | null
+          subtitle_ru?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          card_layout?: string | null
+          created_at?: string | null
+          cta_description_en?: string | null
+          cta_description_ru?: string | null
+          cta_title_en?: string | null
+          cta_title_ru?: string | null
+          description_en?: string | null
+          description_ru?: string | null
+          hero_image_url?: string | null
+          icon?: string | null
+          id?: string
+          is_published?: boolean | null
+          name_en?: string | null
+          name_ru?: string
+          overview_en?: string | null
+          overview_ru?: string | null
+          overview_secondary_en?: string | null
+          overview_secondary_ru?: string | null
+          seo_description_en?: string | null
+          seo_description_ru?: string | null
+          seo_title_en?: string | null
+          seo_title_ru?: string | null
+          shared_included_en?: string[] | null
+          shared_included_ru?: string[] | null
+          shared_not_included_en?: string[] | null
+          shared_not_included_ru?: string[] | null
+          shared_who_for_en?: string[] | null
+          shared_who_for_ru?: string[] | null
+          slug?: string
+          sort_order?: number | null
+          subtitle_en?: string | null
+          subtitle_ru?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       tours: {
         Row: {
+          badge_color: string | null
+          badge_en: string | null
+          badge_ru: string | null
+          city_id: string | null
           cover_image: string | null
           created_at: string
           currency: string
@@ -72,21 +184,42 @@ export type Database = {
           full_description_en: string | null
           full_description_ru: string | null
           gallery_images: string[] | null
+          group_type_en: string | null
+          group_type_ru: string | null
+          highlights_en: string[] | null
+          highlights_ru: string[] | null
           id: string
           included_en: string[] | null
           included_ru: string[] | null
           is_published: boolean
+          languages_en: string | null
+          languages_ru: string | null
           location: string | null
+          meeting_point_en: string | null
+          meeting_point_ru: string | null
           price: number
+          price_text_en: string | null
+          price_text_ru: string | null
+          program_en: string[] | null
+          program_ru: string[] | null
+          route_en: string | null
+          route_ru: string | null
           short_description_en: string | null
           short_description_ru: string | null
           sort_order: number
+          start_time_en: string | null
+          start_time_ru: string | null
           title_en: string | null
           title_ru: string
           tour_type: string
+          tour_type_icon: string | null
           updated_at: string
         }
         Insert: {
+          badge_color?: string | null
+          badge_en?: string | null
+          badge_ru?: string | null
+          city_id?: string | null
           cover_image?: string | null
           created_at?: string
           currency?: string
@@ -96,21 +229,42 @@ export type Database = {
           full_description_en?: string | null
           full_description_ru?: string | null
           gallery_images?: string[] | null
+          group_type_en?: string | null
+          group_type_ru?: string | null
+          highlights_en?: string[] | null
+          highlights_ru?: string[] | null
           id?: string
           included_en?: string[] | null
           included_ru?: string[] | null
           is_published?: boolean
+          languages_en?: string | null
+          languages_ru?: string | null
           location?: string | null
+          meeting_point_en?: string | null
+          meeting_point_ru?: string | null
           price?: number
+          price_text_en?: string | null
+          price_text_ru?: string | null
+          program_en?: string[] | null
+          program_ru?: string[] | null
+          route_en?: string | null
+          route_ru?: string | null
           short_description_en?: string | null
           short_description_ru?: string | null
           sort_order?: number
+          start_time_en?: string | null
+          start_time_ru?: string | null
           title_en?: string | null
           title_ru: string
           tour_type?: string
+          tour_type_icon?: string | null
           updated_at?: string
         }
         Update: {
+          badge_color?: string | null
+          badge_en?: string | null
+          badge_ru?: string | null
+          city_id?: string | null
           cover_image?: string | null
           created_at?: string
           currency?: string
@@ -120,21 +274,46 @@ export type Database = {
           full_description_en?: string | null
           full_description_ru?: string | null
           gallery_images?: string[] | null
+          group_type_en?: string | null
+          group_type_ru?: string | null
+          highlights_en?: string[] | null
+          highlights_ru?: string[] | null
           id?: string
           included_en?: string[] | null
           included_ru?: string[] | null
           is_published?: boolean
+          languages_en?: string | null
+          languages_ru?: string | null
           location?: string | null
+          meeting_point_en?: string | null
+          meeting_point_ru?: string | null
           price?: number
+          price_text_en?: string | null
+          price_text_ru?: string | null
+          program_en?: string[] | null
+          program_ru?: string[] | null
+          route_en?: string | null
+          route_ru?: string | null
           short_description_en?: string | null
           short_description_ru?: string | null
           sort_order?: number
+          start_time_en?: string | null
+          start_time_ru?: string | null
           title_en?: string | null
           title_ru?: string
           tour_type?: string
+          tour_type_icon?: string | null
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "tours_city_id_fkey"
+            columns: ["city_id"]
+            isOneToOne: false
+            referencedRelation: "cities"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       user_roles: {
         Row: {
