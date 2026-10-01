@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Outlet, useNavigate, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, Map, ClipboardList, LogOut } from 'lucide-react';
+import { LayoutDashboard, Map, ClipboardList, LogOut, Inbox, Settings } from 'lucide-react';
 
 const AdminLayout = () => {
   const { user, loading, isAdmin, signOut } = useAuth();
@@ -11,7 +11,7 @@ const AdminLayout = () => {
 
   useEffect(() => {
     if (!loading && (!user || !isAdmin)) {
-      navigate('/admin');
+      navigate('/admin/login');
     }
   }, [user, loading, isAdmin, navigate]);
 
@@ -25,6 +25,8 @@ const AdminLayout = () => {
     { path: '/admin/dashboard', label: 'Панель', icon: LayoutDashboard },
     { path: '/admin/tours', label: 'Экскурсии', icon: Map },
     { path: '/admin/bookings', label: 'Заявки', icon: ClipboardList },
+    { path: '/admin/inquiries', label: 'Обращения', icon: Inbox },
+    { path: '/admin/settings', label: 'Контакты и настройки', icon: Settings },
   ];
 
   return (

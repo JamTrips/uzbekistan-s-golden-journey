@@ -27,6 +27,8 @@ import AdminTours from "./pages/admin/AdminTours";
 import AdminBookings from "./pages/admin/AdminBookings";
 
 import AdminSetup from "./pages/admin/AdminSetup";
+import AdminInquiries from "./pages/admin/AdminInquiries";
+import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -56,11 +58,14 @@ const App = () => (
               
               {/* Admin */}
               <Route path="/admin" element={<AdminLogin />} />
+              <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin/setup" element={<AdminSetup />} />
               <Route path="/admin" element={<AdminLayout />}>
                 <Route path="dashboard" element={<AdminDashboard />} />
                 <Route path="tours" element={<AdminTours />} />
                 <Route path="bookings" element={<AdminBookings />} />
+                <Route path="inquiries" element={<AdminInquiries />} />
+                <Route path="settings" element={<AdminSettings />} />
               </Route>
 
               <Route path="*" element={<NotFound />} />
