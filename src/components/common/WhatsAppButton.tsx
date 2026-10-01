@@ -1,12 +1,13 @@
 import React from 'react';
+import { useContactLinks } from '@/hooks/useSiteSettings';
 import { MessageCircle, Send, Phone } from 'lucide-react';
 
 const FloatingContactButtons: React.FC = () => {
-  const phoneNumber = '998990152110';
+  const links = useContactLinks();
   const message = encodeURIComponent('Hello! I would like to inquire about tours in Uzbekistan.');
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-  const telegramUrl = `https://t.me/+${phoneNumber}`;
-  const phoneUrl = `tel:+${phoneNumber}`;
+  const whatsappUrl = `${links.whatsappUrl}?text=${message}`;
+  const telegramUrl = links.telegramUrl;
+  const phoneUrl = links.phoneUrl;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">

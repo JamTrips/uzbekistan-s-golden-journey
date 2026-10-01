@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContactLinks } from '@/hooks/useSiteSettings';
 import { MessageCircle, Phone, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -13,10 +14,10 @@ const ContactButtons: React.FC<ContactButtonsProps> = ({
   size = 'default',
   className = '' 
 }) => {
-  const phoneNumber = '998990152110';
-  const whatsappUrl = `https://wa.me/${phoneNumber}`;
-  const telegramUrl = `https://t.me/+${phoneNumber}`;
-  const phoneUrl = `tel:+${phoneNumber}`;
+  const links = useContactLinks();
+  const whatsappUrl = links.whatsappUrl;
+  const telegramUrl = links.telegramUrl;
+  const phoneUrl = links.phoneUrl;
 
   const buttonSize = size === 'sm' ? 'sm' : 'default';
   const iconSize = size === 'sm' ? 'w-4 h-4' : 'w-5 h-5';

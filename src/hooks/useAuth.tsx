@@ -20,9 +20,8 @@ export const useAuth = () => {
             .from('user_roles')
             .select('role')
             .eq('user_id', session.user.id)
-            .eq('role', 'admin')
-            .maybeSingle();
-          setIsAdmin(!!data);
+            .in('role', ['admin', 'editor']);
+          setIsAdmin(!!data && data.length > 0);
           setLoading(false);
         }, 0);
       } else {
