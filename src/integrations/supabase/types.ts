@@ -169,6 +169,117 @@ export type Database = {
         }
         Relationships: []
       }
+      inquiries: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          message: string | null
+          name: string
+          phone: string
+          status: string
+          subject: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          message?: string | null
+          name: string
+          phone: string
+          status?: string
+          subject?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string
+          status?: string
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          address_en: string | null
+          address_ru: string | null
+          created_at: string
+          email: string | null
+          facebook: string | null
+          footer_text_en: string | null
+          footer_text_ru: string | null
+          hero_image: string | null
+          hero_subtitle_en: string | null
+          hero_subtitle_ru: string | null
+          hero_title_en: string | null
+          hero_title_ru: string | null
+          id: number
+          instagram: string | null
+          phone: string | null
+          seo_description_en: string | null
+          seo_description_ru: string | null
+          seo_title_en: string | null
+          seo_title_ru: string | null
+          telegram: string | null
+          updated_at: string
+          whatsapp: string | null
+          youtube: string | null
+        }
+        Insert: {
+          address_en?: string | null
+          address_ru?: string | null
+          created_at?: string
+          email?: string | null
+          facebook?: string | null
+          footer_text_en?: string | null
+          footer_text_ru?: string | null
+          hero_image?: string | null
+          hero_subtitle_en?: string | null
+          hero_subtitle_ru?: string | null
+          hero_title_en?: string | null
+          hero_title_ru?: string | null
+          id?: number
+          instagram?: string | null
+          phone?: string | null
+          seo_description_en?: string | null
+          seo_description_ru?: string | null
+          seo_title_en?: string | null
+          seo_title_ru?: string | null
+          telegram?: string | null
+          updated_at?: string
+          whatsapp?: string | null
+          youtube?: string | null
+        }
+        Update: {
+          address_en?: string | null
+          address_ru?: string | null
+          created_at?: string
+          email?: string | null
+          facebook?: string | null
+          footer_text_en?: string | null
+          footer_text_ru?: string | null
+          hero_image?: string | null
+          hero_subtitle_en?: string | null
+          hero_subtitle_ru?: string | null
+          hero_title_en?: string | null
+          hero_title_ru?: string | null
+          id?: number
+          instagram?: string | null
+          phone?: string | null
+          seo_description_en?: string | null
+          seo_description_ru?: string | null
+          seo_title_en?: string | null
+          seo_title_ru?: string | null
+          telegram?: string | null
+          updated_at?: string
+          whatsapp?: string | null
+          youtube?: string | null
+        }
+        Relationships: []
+      }
       tours: {
         Row: {
           badge_color: string | null
@@ -348,6 +459,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_staff: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
       app_role: "admin" | "user" | "editor"
